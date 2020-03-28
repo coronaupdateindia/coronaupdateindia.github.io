@@ -1,6 +1,6 @@
 function graphDraw(canvasIdStr,typeId){
 
-	typeStrArray=['Confirmed',' ','Cured/Discharged','Dead'];
+	typeStrArray=['Confirmed',' ','Cured/Discharged','Dead','Active'];
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
 
@@ -29,6 +29,11 @@ function graphDraw(canvasIdStr,typeId){
 	maxscaleSizeY=((rawData[rawData.length-1][1][firstVal]+rawData[rawData.length-1][1][secondVal])/divFactor)
 	//-((rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor);
 
+	if (typeId==-2){
+	typeStr=typeStrArray[4];
+	maxscaleSizeY=(rawData[rawData.length-1][1][0]+rawData[rawData.length-1][1][1]-rawData[rawData.length-1][1][2]-rawData[rawData.length-1][1][3]);
+	}
+
 	oldDataY=0;
 	oldPointX=0;
 	oldPointY=maxHeight;
@@ -55,6 +60,10 @@ function graphDraw(canvasIdStr,typeId){
 
 		currDataX = rawData[idx][0].valueOf();
 		currDataY = ((rawData[idx][1][firstVal]+rawData[idx][1][secondVal])/divFactor);
+
+		if (typeId==-2){
+		currDataY = (rawData[idx][1][0]+rawData[idx][1][1]-rawData[idx][1][2]-rawData[idx][1][3]);
+		}
 
 //		if (typeId>=-1 && oldDataY>currDataY)
 //		{currDataY=oldDataY;}
