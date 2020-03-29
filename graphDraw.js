@@ -3,9 +3,10 @@ function graphDraw(canvasIdStr,typeId){
 	typeStrArray=['Confirmed',' ','Cured/Discharged/Migrated','Dead','Active'];
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
-
-	var maxWidth=canvas.width-50;
-	var maxHeight=canvas.height-50;
+	var marginX=50;
+	var marginY=55;
+	var maxWidth=canvas.width-marginX;
+	var maxHeight=canvas.height-marginY;
 
 	firstVal=typeId;
 	secondVal=typeId;
@@ -89,12 +90,33 @@ function graphDraw(canvasIdStr,typeId){
 		if (newPointX-oldPrnPointX>25 || oldPrnPointX==0 || idx==rawData.length-1)
 		{
 			ctx.font = "10px Arial";
-			ctx.fillText(currDataY,newPointX,newPointY-8);
-			ctx.stroke();	
 
-			ctx.font = "10px Arial";
-			ctx.fillText(rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate(),newPointX,maxHeight+50-10);
-			ctx.fillText(rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes(),newPointX,maxHeight+50-0);
+			rtext=currDataY;
+			directionFactor=0.25;
+			if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;}
+			drawText(ctx,rtext,10,newPointX,newPointY,0,7,directionFactor);
+			
+			//ctx.fillText(currDataY,newPointX,newPointY+15);
+			//ctx.stroke();	
+
+
+//////////////////////////
+
+rtext=rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes();
+drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
+//ctx.save();
+//ctx.translate(newPointX,maxHeight+marginY);
+//ctx.rotate(-0.50*Math.PI);
+//ctx.font = "10px Arial";
+
+//var rText = 'Rotated Text';
+ctx.fillText(rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes() , 4, -2);
+ctx.restore();
+
+//////////////////////////
+//			ctx.font = "10px Arial";
+//			ctx.fillText(rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate(),newPointX,maxHeight+50-10);
+//			ctx.fillText(rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes(),newPointX,maxHeight+50-0);
 
 			oldPrnPointX=newPointX;
 			oldPrnPointY=newPointY;
@@ -108,4 +130,17 @@ function graphDraw(canvasIdStr,typeId){
 		oldPointY=newPointY;
 
 	}
+}
+
+function drawText(ctx,text,fontSize,pointX,pointY,adjustmentX,adjustmentY,rotation)
+{
+	ctx.save();
+	ctx.translate(pointX,pointY);
+	ctx.rotate(rotation*Math.PI);
+	ctx.font = fontSize+"px Arial";
+
+	//var rText = 'Rotated Text';
+	ctx.fillText(text , adjustmentY, adjustmentX);
+	ctx.restore();
+
 }
