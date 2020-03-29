@@ -1,6 +1,6 @@
 function graphDraw(canvasIdStr,typeId){
 
-	typeStrArray=['Confirmed',' ','Cured/Discharged','Dead','Active'];
+	typeStrArray=['Confirmed',' ','Cured/Discharged/Migrated','Dead','Active'];
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
 
