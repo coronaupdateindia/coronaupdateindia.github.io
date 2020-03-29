@@ -68,7 +68,7 @@ function displayStateSummary(unsortedData,sortedStateList){
 		if (text3.toString().length==1){spacer3="  ";}
 		if (text3.toString().length==2){spacer3=" ";}
 
-		element.innerHTML=spacer+(i+1)+"."+" ("+spacer1+" "+text1+spacer2+" "+text2+spacer3+" "+text3+")  "+sortedStateList[i];
+		element.innerHTML=spacer+(i+1)+"."+" ("+spacer1+text1+","+spacer2+text2+","+spacer3+text3+")  "+sortedStateList[i];
 		element.href=sortedStateList[i]+".html";
 
 	}
