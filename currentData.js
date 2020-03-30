@@ -1,18 +1,1 @@
-var stateDict={
-'Andhra Pradesh':[19, 0, 1, 0],
-'Bihar':[11, 0, 0, 1],
-'Chandigarh':[8, 0, 0, 0],
-'Chhattisgarh':[7, 0, 0, 0],
-'Delhi':[53, 0, 6, 2],
-'Goa':[5, 0, 0, 0],'Gujarat':[58, 0, 1, 5],
-'Haryana':[33, 0, 17, 0],
-'Himachal Pradesh':[3, 0, 0, 1],
-'Jammu and Kashmir':[31, 0, 1, 2],
-'Karnataka':[80, 0, 5, 3],
-'Kerala':[194, 0, 19, 1],
-'Ladakh':[13, 0, 3, 0],
-'Madhya Pradesh':[33, 0, 0, 2],
-'Maharashtra':[193, 0, 25, 8],'Manipur':[1, 0, 0, 0],
-'Mizoram':[1, 0, 0, 0],
-'Odisha':[3, 0, 0, 0],
-'Puducherry':[1, 0, 0, 0],'Punjab':[38, 0, 1, 1],'Rajasthan':[57, 0, 3, 0],'Tamil Nadu':[50, 0, 4, 1],'Telengana':[69, 0, 1, 1],'Uttar Pradesh':[75, 0, 11, 0],'Uttarakhand':[7, 0, 2, 0],'West Bengal':[19, 0, 0, 1],'Andaman and Nicobar Islands':[9, 0, 0, 0]};
+var stateDict={'Andhra Pradesh':[23, 0, 1, 0],'Bihar':[15, 0, 0, 1],'Chandigarh':[8, 0, 0, 0],'Chhattisgarh':[7, 0, 0, 0],'Delhi':[87, 0, 6, 2],'Goa':[5, 0, 0, 0],'Gujarat':[69, 0, 1, 6],'Haryana':[36, 0, 18, 0],'Himachal Pradesh':[3, 0, 0, 1],'Jammu and Kashmir':[48, 0, 2, 2],'Karnataka':[83, 0, 5, 3],'Kerala':[202, 0, 19, 1],'Ladakh':[13, 0, 3, 0],'Madhya Pradesh':[47, 0, 0, 3],'Maharashtra':[198, 0, 25, 8],'Manipur':[1, 0, 0, 0],'Mizoram':[1, 0, 0, 0],'Odisha':[3, 0, 0, 0],'Puducherry':[1, 0, 0, 0],'Punjab':[38, 0, 1, 1],'Rajasthan':[59, 0, 3, 0],'Tamil Nadu':[67, 0, 4, 1],'Telengana':[71, 0, 1, 1],'Uttar Pradesh':[82, 0, 11, 0],'Uttarakhand':[7, 0, 2, 0],'West Bengal':[22, 0, 0, 1],'Andaman and Nicobar Islands':[9, 0, 0, 0]};
