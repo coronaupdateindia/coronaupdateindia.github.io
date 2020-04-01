@@ -102,7 +102,7 @@ function graphDraw(canvasIdStr,typeId){
 
 //////////////////////////
 
-rtext=rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes();
+rtext=(rawData[idx][0].getMonth()+1)+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes();
 drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
 //ctx.save();
 //ctx.translate(newPointX,maxHeight+marginY);
@@ -110,7 +110,7 @@ drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
 //ctx.font = "10px Arial";
 
 //var rText = 'Rotated Text';
-ctx.fillText(rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes() , 4, -2);
+//ctx.fillText(rawData[idx][0].getMonth()+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes() , 4, -2);
 ctx.restore();
 
 //////////////////////////
