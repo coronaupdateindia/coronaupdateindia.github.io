@@ -144,3 +144,122 @@ function drawText(ctx,text,fontSize,pointX,pointY,adjustmentX,adjustmentY,rotati
 	ctx.restore();
 
 }
+
+function getTotalCases(unsortedData)
+{
+	totalCaseCnt=0
+	for (key in unsortedData){totalCaseCnt=totalCaseCnt+unsortedData[key][0]+unsortedData[key][1];}
+	return totalCaseCnt;	
+}
+
+function drawPieChart(canvasIdStr,unsortedData,sortedStateList)
+{
+
+	totalCaseCnt=getTotalCases(unsortedData);
+
+	var canvas = document.getElementById(canvasIdStr);
+	var ctx = canvas.getContext("2d");
+
+	radius=Math.min(canvas.width,canvas.height)/2-10;
+
+	oldPointX=(canvas.width/2)+radius+1;
+	oldPointY=(canvas.height/2);
+	oldArcPoint=0;
+
+	for (i=0;i<sortedStateList.length;i++){
+
+
+		if (unsortedData[sortedStateList[i]]){
+
+		newPointVal=unsortedData[sortedStateList[i]][0]+unsortedData[sortedStateList[i]][1];
+		newArcPoint= oldArcPoint + (2 * Math.PI*(newPointVal/totalCaseCnt));
+		//alert((2 * Math.PI)+" "+newArcPoint);
+
+		newPointX=(canvas.width/2)+((radius+1)*Math.cos(newArcPoint));
+		newPointY=(canvas.height/2)+((radius+1)*Math.sin(newArcPoint));
+
+		newPointTextX=(canvas.width/2)+((radius/3)*Math.cos(oldArcPoint+(newArcPoint-oldArcPoint)/2));
+		newPointTextY=(canvas.height/2)+((radius/3)*Math.sin(oldArcPoint+(newArcPoint-oldArcPoint)/2));
+
+		colorRed  =255*Math.random();
+		colorGreen=255*Math.random();
+		colorBlue=255*Math.random();
+
+
+		colorStr="rgb("+colorRed+","+colorGreen+","+colorBlue+")";
+		
+		ctx.strokeStyle = colorStr;
+		ctx.fillStyle = colorStr;
+		
+		//draw filled arc
+
+		ctx.beginPath();
+		ctx.arc(canvas.width/2, canvas.height/2, Math.min(canvas.width,canvas.height)/2-10, oldArcPoint, newArcPoint,false);
+		//ctx.closePath();
+		ctx.stroke();
+		ctx.fill();
+
+		//draw triangle
+
+		ctx.beginPath();
+
+		ctx.moveTo(canvas.width/2, canvas.height/2);
+		ctx.lineTo(oldPointX, oldPointY);
+		ctx.lineTo(newPointX, newPointY);
+		ctx.fill();
+		ctx.stroke;
+
+
+/////////////////////////////////
+		colorStr="rgb(0,0,0)";
+		ctx.strokeStyle = colorStr;
+		
+		//draw arc
+		ctx.beginPath();
+		ctx.arc(canvas.width/2, canvas.height/2, Math.min(canvas.width,canvas.height)/2-10, oldArcPoint, newArcPoint,false);
+		//ctx.closePath();
+		ctx.stroke();
+
+		//draw lines
+
+		ctx.beginPath();
+
+		ctx.moveTo(canvas.width/2, canvas.height/2);
+		ctx.lineTo(oldPointX, oldPointY);
+		ctx.stroke();
+		ctx.moveTo(canvas.width/2, canvas.height/2);
+		ctx.lineTo(newPointX, newPointY);
+		ctx.stroke();
+		
+		//write state text
+		colorStr="rgb(0,0,0)";
+		ctx.fillStyle = colorStr;
+		text1=0;
+		text2=0;
+		text3=0;
+		if (unsortedData[sortedStateList[i]]){
+			text1=unsortedData[sortedStateList[i]][0]+unsortedData[sortedStateList[i]][1];
+			text2=unsortedData[sortedStateList[i]][2];
+			text3=unsortedData[sortedStateList[i]][3];
+		}
+
+		if(text1/totalCaseCnt>.02){
+
+		drawText(ctx,sortedStateList[i]+" ("+text1+")",12,newPointTextX,newPointTextY,0,0,(oldArcPoint+(newArcPoint-oldArcPoint)/2)/Math.PI);
+		}
+/////////////////////////////////
+
+
+
+
+		oldArcPoint=newArcPoint;
+		oldPointX=newPointX;
+		oldPointY=newPointY;
+
+		}
+	}
+		//
+
+}
+
+
