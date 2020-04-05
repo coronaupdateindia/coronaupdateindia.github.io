@@ -20,13 +20,54 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 tr:nth-child(odd) {background-color: #ffffff;}
 
 td:hover {background-color:#d5d5d5;}
-</style>
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #fCAF50;
+  color: white;
+}
+
+s</style>
 </head>
 
 <body   style="background-color:#f3f3f3">
 
+
+ <div class="topnav">
+  <a class="active" href="#">NationWide Dashboard</a>
+  <a href="#ConfirmedCanvas">Confirmed</a>
+  <a href="#ActiveCanvas2">Active</a>
+  <a href="#CuredCanvas3">Cured Etc</a>
+  <a href="#DeadCanvas4">Dead</a>
+  <a class="active" href="#StateWise">State Dashboard</a>
+  <a href="#StateCanvas">Pie Chart</a>
+  <a href="#StateGraphs">State Graphs</a>
+
+</div> 
+
+<div style="padding-left:16px">
 <B>
-<H2 ALIGN='CENTRE'>NATIONWIDE DASHBOARD OF CORONAVIRUS CASES*</H2>
+<H2 ID="NationWide" ALIGN='CENTRE'>NATIONWIDE DASHBOARD OF CORONAVIRUS CASES*</H2>
+</div>
+
 <P>
 <a href='disclaimer.html'>** DISCLAIMER: MUST READ THE CONTENT OF THIS LINK IN FULL BEFORE PROCEEDING ON THIS WEBSITE **</a><BR>
 <p>
@@ -52,7 +93,7 @@ Your browser does not support the canvas element.
 <br>
 <br>
 <br>
-<H2>STATE WISE DASHBOARD <SUP>*#</SUP></H2>
+<H2 ID="StateWise">STATE WISE DASHBOARD <SUP>*#</SUP></H2>
 
 <br>
 <canvas id="StateCanvas" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
@@ -61,7 +102,7 @@ Your browser does not support the canvas element.
 
 <br>
 
-<H3>CLICK STATE NAME BELOW FOR THAT STATE'S GRAPH OR <U> <a href='indiaMap.html'>HERE TO SEE STATE WISE GRAPHS USING MAP OF INDIA</A></U><SUP>*#</SUP></H3>
+<H3 ID="StateGraphs">CLICK STATE NAME BELOW FOR THAT STATE'S GRAPH OR <U> <a href='indiaMap.html'>HERE TO SEE STATE WISE GRAPHS USING MAP OF INDIA</A></U><SUP>*#</SUP></H3>
 <P>
 Format : (Confirmed, Cured/Discharged/Migrated, Dead)
 <pre style="font-size: 15px">
