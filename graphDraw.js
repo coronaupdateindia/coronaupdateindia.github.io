@@ -94,7 +94,7 @@ function graphDraw(canvasIdStr,typeId){
 			rtext=currDataY;
 			directionFactor=0.25;
 			if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;}
-			drawText(ctx,rtext,10,newPointX,newPointY,0,7,directionFactor);
+			drawText(ctx,rtext,11,newPointX+1,newPointY+1,0,7,directionFactor);
 			
 			//ctx.fillText(currDataY,newPointX,newPointY+15);
 			//ctx.stroke();	
@@ -102,7 +102,13 @@ function graphDraw(canvasIdStr,typeId){
 
 //////////////////////////
 
-rtext=(rawData[idx][0].getMonth()+1)+"/"+rawData[idx][0].getDate()+" "+rawData[idx][0].getHours()+":"+rawData[idx][0].getMinutes();
+rMonth   =rawData[idx][0].getMonth()+1;
+rDate    =rawData[idx][0].getDate()   ;if (rDate   <10){rDate   ="0"   +rDate ;}
+rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
+rMinutes =rawData[idx][0].getMinutes();if (rMinutes<10){rMinutes="0"+rMinutes ;}
+
+
+rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
 drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
 //ctx.save();
 //ctx.translate(newPointX,maxHeight+marginY);

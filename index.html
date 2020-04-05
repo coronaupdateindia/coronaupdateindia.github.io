@@ -8,19 +8,22 @@
 <a href='disclaimer.html'>** DISCLAIMER: MUST READ THE CONTENT OF THIS LINK IN FULL BEFORE PROCEEDING ON THIS WEBSITE **</a><BR>
 <p>
 <p>
-<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #d3d3d3;">
+<canvas id="ConfirmedCanvas" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the canvas element.
 </canvas>
 <br>
-<canvas id="myCanvas2" width="1000" height="500" style="border:1px solid #d3d3d3;">
+<br>
+<canvas id="ActiveCanvas2" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the canvas element.
 </canvas>
 <br>
-<canvas id="myCanvas3" width="1000" height="500" style="border:1px solid #d3d3d3;">
+<br>
+<canvas id="CuredCanvas3" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the canvas element.
 </canvas>
 <br>
-<canvas id="myCanvas4" width="1000" height="500" style="border:1px solid #d3d3d3;">
+<br>
+<canvas id="DeadCanvas4" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the canvas element.
 </canvas>
 <br>
@@ -29,7 +32,7 @@ Your browser does not support the canvas element.
 <H2>STATE WISE DETAILS</H2>
 
 <br>
-<canvas id="myCanvas0" width="1000" height="500" style="border:1px solid #d3d3d3;">
+<canvas id="StateCanvas" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the canvas element.
 </canvas>
 
@@ -38,7 +41,7 @@ Your browser does not support the canvas element.
 <H3>CLICK STATE NAME BELOW FOR THAT STATE'S GRAPH OR <U> <a href='indiaMap.html'>HERE TO SEE STATE WISE GRAPHS USING MAP OF INDIA</A></U><SUP>*#</SUP></H3>
 <P>
 Format : (Confirmed, Cured/Discharged/Migrated, Dead)
-<pre style="font-size: 14px">
+<pre style="font-size: 16px">
 
 <style>
     a { text-decoration: none; }
@@ -115,17 +118,17 @@ USE, RATHER REFER TO THE REVELENT MINISTRY'S SITE FOR OFFICAL DATA.
 <script src="summaryData.js"></script>
 <script src=  "graphDraw.js"></script>
 <script>
-graphDraw("myCanvas" ,-1);
-graphDraw("myCanvas2",-2);
-graphDraw("myCanvas3", 2);
-graphDraw("myCanvas4", 3);
+graphDraw("ConfirmedCanvas" ,-1);
+graphDraw("ActiveCanvas2",-2);
+graphDraw("CuredCanvas3", 2);
+graphDraw("DeadCanvas4", 3);
 </script>
 <script src="stateList.js"></script>
 <script src="currentData.js"></script>
 <script src="sortData.js"></script>
 <script>
 sortedList=getSortedData(stateDict,baseStateList);
-drawPieChart("myCanvas0",stateDict,sortedList);
+drawPieChart("StateCanvas",stateDict,sortedList);
 displayStateSummary(stateDict,sortedList);
 </script>
 </body>
