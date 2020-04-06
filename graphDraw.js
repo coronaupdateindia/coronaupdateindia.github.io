@@ -282,4 +282,46 @@ function drawPieChart(canvasIdStr,unsortedData,sortedStateList)
 
 }
 
+function displaySummaryData()
+{
+	confirmedVal   =rawData[rawData.length-1][1][0]+rawData[rawData.length-1][1][1];
+	confirmedAddVal=confirmedVal - (rawData[rawData.length-2][1][0]+rawData[rawData.length-2][1][1]);
 
+	curedVal   =rawData[rawData.length-1][1][2];
+	curedAddVal=curedVal - rawData[rawData.length-2][1][2];
+
+	deadVal   =rawData[rawData.length-1][1][3];
+	deadAddVal=deadVal - rawData[rawData.length-2][1][3];
+
+	activeVal   =confirmedVal-curedVal-deadVal;
+	activeAddVal=confirmedAddVal-curedAddVal-deadAddVal;
+
+	element=document.getElementById("dateFigure");
+	element.innerHTML=rawData[rawData.length-1][0];
+
+	element=document.getElementById("ConfirmedFigure");
+	element.innerHTML=confirmedVal;
+
+	element=document.getElementById("ConfirmedAddFigure");
+	element.innerHTML="(+"+confirmedAddVal+")";
+
+	element=document.getElementById("ActiveFigure");
+	element.innerHTML=activeVal;
+
+	element=document.getElementById("ActiveAddFigure");
+	element.innerHTML="(+"+activeAddVal+")";
+
+	element=document.getElementById("CuredFigure");
+	element.innerHTML=curedVal;
+
+	element=document.getElementById("CuredAddFigure");
+	element.innerHTML=" ( +"+curedAddVal+" )";
+
+	element=document.getElementById("DeadFigure");
+	element.innerHTML=deadVal;
+
+	element=document.getElementById("DeadAddFigure");
+	element.innerHTML=" ( +"+deadAddVal+" )";;
+
+
+}
