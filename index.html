@@ -33,6 +33,12 @@ th, td {
   border-right: 1px solid #ddd;
 
 }
+
+
+.trDashboard a {
+  color: #626262;
+}
+
 tr:nth-child(even) {background-color: #f2f2f2;}
 tr:nth-child(odd) {background-color: #ffffff;}
 
@@ -95,10 +101,10 @@ td:hover {background-color:#d5d5d5;}
 <TR class="trDashboard"> <TD class="dashboard" >COVID-19 INDIA AS ON:<TD colspan="4"  ID="dateFigure"></TD></TR> 
 <TR class="trDashboard"> <TD class="dashboard" ><TD colspan="5" ></TD></TR> 
 <TR class="trDashboard"> <TD rowspan="4" width="20%"><IMG SRC="corona.gif"></TD> 
-                          <TD width="30%">CONFIRMED                </TD> <TD class="dashboard" width="20%" ID="ConfirmedFigure"></TD><TD class="dashboard" width="10%"  ID="ConfirmedAddFigure"></TD><TD></TD></TR>
-<TR class="trDashboard">  <TD width="30%">ACTIVE                   </TD> <TD class="dashboard" width="20%" ID=   "ActiveFigure"></TD><TD class="dashboard" width="10%"  ID=   "ActiveAddFigure"></TD><TD></TD></TR>
-<TR class="trDashboard">  <TD width="30%">CURED/DISCHARGED/MIGRATED</TD> <TD class="dashboard" width="20%" ID=    "CuredFigure"></TD><TD class="dashboard" width="10%"  ID=    "CuredAddFigure"></TD><TD></TD></TR>
-<TR class="trDashboard">  <TD width="30%">DEAD                     </TD> <TD class="dashboard" width="20%" ID=     "DeadFigure"></TD><TD class="dashboard" width="10%"  ID=     "DeadAddFigure"></TD><TD></TD></TR>
+                          <TD width="30%"><a href="#ConfirmedCanvas">CONFIRMED                </a></TD> <TD class="dashboard" width="20%" ID="ConfirmedFigure"></TD><TD class="dashboard" width="10%"  ID="ConfirmedAddFigure"></TD><TD></TD></TR>
+<TR class="trDashboard">  <TD width="30%"><a href=  "#ActiveCanvas2">ACTIVE                   </a></TD> <TD class="dashboard" width="20%" ID=   "ActiveFigure"></TD><TD class="dashboard" width="10%"  ID=   "ActiveAddFigure"></TD><TD></TD></TR>
+<TR class="trDashboard">  <TD width="30%"><a href=   "#CuredCanvas3">CURED/DISCHARGED/MIGRATED</a></TD> <TD class="dashboard" width="20%" ID=    "CuredFigure"></TD><TD class="dashboard" width="10%"  ID=    "CuredAddFigure"></TD><TD></TD></TR>
+<TR class="trDashboard">  <TD width="30%"><a href=    "#DeadCanvas4">DEAD                     </a></TD> <TD class="dashboard" width="20%" ID=     "DeadFigure"></TD><TD class="dashboard" width="10%"  ID=     "DeadAddFigure"></TD><TD></TD></TR>
 </TABLE>
 </div> 
 <canvas id="ConfirmedCanvas" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
