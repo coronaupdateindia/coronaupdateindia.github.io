@@ -1,0 +1,141 @@
+.stateTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+sup {  font-size: 0.4em; }
+
+th, td {
+  padding: 5px;
+  text-align: left;
+
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+
+}
+
+.sdashboard {
+  padding: 7px;
+  text-align: center;
+  font-size: 17px;
+  color: #000;
+  line-height: 2pt;
+  margin-bottom:25px;
+}
+
+.dashboard {
+  padding: 0px;
+  text-align: center;
+  font-size: 35px;
+  color: #000;
+  line-height: 2pt;
+  margin-bottom:15px;
+}
+
+.Hdashboard {
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  line-height: 17pt;
+}
+.subHdashboard {
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  line-height: 17pt;
+}
+
+
+.tdDashboard {
+  padding: 2px;
+  cellspacing:5px;
+  color: #626262;
+  text-align: center;
+  vertical-align: top;
+
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+ .confirmTdDashboard {@extend .tdDashboard;
+  background-color:#ffffbb;
+}
+
+ .activeTdDashboard {@extend .tdDashboard;
+  background-color:#ddffff;
+}
+
+ .curedTdDashboard {@extend .tdDashboard;
+  background-color:#ddffdd;
+}
+
+ .deadTdDashboard {@extend .tdDashboard;
+  background-color:#ffdddd;
+}
+
+.imgTdDashboard {
+  padding: 2px;
+  cellspacing:5px;
+  color: #626262;
+  background-color:#ffffff;
+  text-align: center;
+  vertical-align: center;
+
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.trDashboard {
+  padding: 2px;
+  color: #626262;
+  text-align: left;
+
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+
+}
+
+.trDashboard a {
+  color: #626262;
+}
+
+.tableDashboard {
+  padding: 0px;
+  border-collapse: separate;
+  border-spacing: 25px;
+  color: #ffffff;
+}
+
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #ffffff;}
+
+td:hover {background-color:#d5d5d5;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #ffffff;
+  width: 88.5%;
+}
+
+.topnav a {
+  float: left;
+  color: #020202;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #fCAF50;
+  color: white;
+}
