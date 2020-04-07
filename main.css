@@ -142,10 +142,9 @@ td:hover {background-color:#d5d5d5;}
 }
 
   .commentDashboard {
-line-height: 10pt;
 margin-left:265px;
 margin-top:2px;
-font-size: .2em;
+font-size: .4em;
 color:#aaaaaa;  }
 
 @media (orientation: landscape) {
