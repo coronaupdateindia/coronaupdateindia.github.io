@@ -152,7 +152,7 @@ color:#626262;  }
 
 @media (orientation: portrait) {
   .commentDashboard {
-line-height: 0pt;
+line-height: 10pt;
 margin-left:265px;
 margin-top:0px;
 font-size: .5em;
