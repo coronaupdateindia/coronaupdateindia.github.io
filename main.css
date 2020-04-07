@@ -128,7 +128,7 @@ td:hover {background-color:#d5d5d5;}
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 17px;
 }
 
 .topnav a:hover {
@@ -148,10 +148,6 @@ font-size: .4em;
 color:#aaaaaa;  }
 
 @media (orientation: landscape) {
-
-  .topnav a {
-    font-size: 17px;
-  }
   
   .commentDashboard {
 line-height: 0pt;
