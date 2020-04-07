@@ -121,7 +121,16 @@ td:hover {background-color:#d5d5d5;}
   background-color: #ffffff;
   width: 1205px;
 }
+.topnav a {
+  float: left;
+  color: #020202;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
 
+@media (orientation: landscape) {
 .topnav a {
   float: left;
   color: #020202;
@@ -130,6 +139,7 @@ td:hover {background-color:#d5d5d5;}
   text-decoration: none;
   font-size: 17px;
 }
+
 
 .topnav a:hover {
   background-color: #ddd;
