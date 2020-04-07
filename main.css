@@ -3,6 +3,7 @@
   width: 100%;
 }
 
+
 sup {  font-size: 0.4em; }
 
 th, td {
@@ -139,3 +140,22 @@ td:hover {background-color:#d5d5d5;}
   background-color: #fCAF50;
   color: white;
 }
+
+@media (orientation: landscape) {
+  .commentDashboard {
+line-height: 0pt;
+margin-left:265px;
+margin-top:-5px;
+font-size: .6em;
+color:#626262;  }
+}
+
+@media (orientation: portrait) {
+  .commentDashboard {
+line-height: 0pt;
+margin-left:265px;
+margin-top:0px;
+font-size: .5em;
+color:#626262;  }
+}
+
