@@ -141,6 +141,13 @@ td:hover {background-color:#d5d5d5;}
   color: white;
 }
 
+  .commentDashboard {
+line-height: 10pt;
+margin-left:265px;
+margin-top:2px;
+font-size: 2em;
+color:#626262;  }
+
 @media (orientation: landscape) {
   .commentDashboard {
 line-height: 0pt;
@@ -150,12 +157,5 @@ font-size: .6em;
 color:#626262;  }
 }
 
-@media (orientation: portrait) {
-  .commentDashboard {
-line-height: 10pt;
-margin-left:265px;
-margin-top:2px;
-font-size: 2em;
-color:#626262;  }
-}
+
 
