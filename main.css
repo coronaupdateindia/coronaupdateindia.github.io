@@ -121,25 +121,15 @@ td:hover {background-color:#d5d5d5;}
   background-color: #ffffff;
   width: 1205px;
 }
+
 .topnav a {
   float: left;
   color: #020202;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 30px;
 }
-
-@media (orientation: landscape) {
-.topnav a {
-  float: left;
-  color: #020202;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
 
 .topnav a:hover {
   background-color: #ddd;
@@ -158,12 +148,19 @@ font-size: .4em;
 color:#aaaaaa;  }
 
 @media (orientation: landscape) {
+
+  .topnav a {
+    font-size: 17px;
+  }
+  
   .commentDashboard {
 line-height: 0pt;
 margin-left:265px;
 margin-top:-5px;
 font-size: .6em;
 color:#626262;  }
+  
+
 }
 
 
