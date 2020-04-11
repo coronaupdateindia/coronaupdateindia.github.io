@@ -307,7 +307,7 @@ function displaySummaryData()
 	element.innerHTML=confirmedVal;
 
 	element=document.getElementById("ConfirmedAddFigure1");
-	element.innerHTML="[ +"+confirmedAddVal1+" ]";
+	element.innerHTML="[+"+confirmedAddVal1+"]";
 
 	element=document.getElementById("ConfirmedAddFigure2");
 	element.innerHTML="( +"+confirmedAddVal2+" )";
@@ -316,7 +316,7 @@ function displaySummaryData()
 	element.innerHTML=activeVal;
 
 	element=document.getElementById("ActiveAddFigure1");
-	element.innerHTML="[ +"+activeAddVal1+" ]";
+	element.innerHTML="[+"+activeAddVal1+"]";
 
 	element=document.getElementById("ActiveAddFigure2");
 	element.innerHTML="( +"+activeAddVal2+" )";
@@ -325,7 +325,7 @@ function displaySummaryData()
 	element.innerHTML=curedVal;
 
 	element=document.getElementById("CuredAddFigure1");
-	element.innerHTML=" [ +"+curedAddVal1+" ]";
+	element.innerHTML=" [+"+curedAddVal1+"]";
 
 	element=document.getElementById("CuredAddFigure2");
 	element.innerHTML=" ( +"+curedAddVal2+" )";
@@ -334,7 +334,7 @@ function displaySummaryData()
 	element.innerHTML=deadVal;
 
 	element=document.getElementById("DeadAddFigure1");
-	element.innerHTML=" [ +"+deadAddVal1+" ]";
+	element.innerHTML=" [+"+deadAddVal1+"]";
 
 
 	element=document.getElementById("DeadAddFigure2");
