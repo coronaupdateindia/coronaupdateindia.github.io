@@ -285,16 +285,20 @@ function drawPieChart(canvasIdStr,unsortedData,sortedStateList)
 function displaySummaryData()
 {
 	confirmedVal   =rawData[rawData.length-1][1][0]+rawData[rawData.length-1][1][1];
-	confirmedAddVal=confirmedVal - (rawData[rawData.length-2][1][0]+rawData[rawData.length-2][1][1]);
+	confirmedAddVal1=confirmedVal - (rawData[rawData.length-2][1][0]+rawData[rawData.length-2][1][1]);
+	confirmedAddVal2=confirmedVal - (rawData[rawData.length-3][1][0]+rawData[rawData.length-3][1][1]);
 
-	curedVal   =rawData[rawData.length-1][1][2];
-	curedAddVal=curedVal - rawData[rawData.length-2][1][2];
+	curedVal    =rawData[rawData.length-1][1][2];
+	curedAddVal1=curedVal - rawData[rawData.length-2][1][2];
+	curedAddVal2=curedVal - rawData[rawData.length-3][1][2];
 
-	deadVal   =rawData[rawData.length-1][1][3];
-	deadAddVal=deadVal - rawData[rawData.length-2][1][3];
+	deadVal    =rawData[rawData.length-1][1][3];
+	deadAddVal1=deadVal - rawData[rawData.length-2][1][3];
+	deadAddVal2=deadVal - rawData[rawData.length-3][1][3];
 
 	activeVal   =confirmedVal-curedVal-deadVal;
-	activeAddVal=confirmedAddVal-curedAddVal-deadAddVal;
+	activeAddVal1=confirmedAddVal1-curedAddVal1-deadAddVal1;
+	activeAddVal2=confirmedAddVal2-curedAddVal2-deadAddVal2;
 
 	element=document.getElementById("dateFigure");
 	element.innerHTML=rawData[rawData.length-1][0];
@@ -302,26 +306,38 @@ function displaySummaryData()
 	element=document.getElementById("ConfirmedFigure");
 	element.innerHTML=confirmedVal;
 
-	element=document.getElementById("ConfirmedAddFigure");
-	element.innerHTML="(+"+confirmedAddVal+")";
+	element=document.getElementById("ConfirmedAddFigure1");
+	element.innerHTML="[ +"+confirmedAddVal1+" ]";
+
+	element=document.getElementById("ConfirmedAddFigure2");
+	element.innerHTML="( +"+confirmedAddVal2+" )";
 
 	element=document.getElementById("ActiveFigure");
 	element.innerHTML=activeVal;
 
-	element=document.getElementById("ActiveAddFigure");
-	element.innerHTML="(+"+activeAddVal+")";
+	element=document.getElementById("ActiveAddFigure1");
+	element.innerHTML="[ +"+activeAddVal1+" ]";
+
+	element=document.getElementById("ActiveAddFigure2");
+	element.innerHTML="( +"+activeAddVal2+" )";
 
 	element=document.getElementById("CuredFigure");
 	element.innerHTML=curedVal;
 
-	element=document.getElementById("CuredAddFigure");
-	element.innerHTML=" ( +"+curedAddVal+" )";
+	element=document.getElementById("CuredAddFigure1");
+	element.innerHTML=" [ +"+curedAddVal1+" ]";
+
+	element=document.getElementById("CuredAddFigure2");
+	element.innerHTML=" ( +"+curedAddVal2+" )";
 
 	element=document.getElementById("DeadFigure");
 	element.innerHTML=deadVal;
 
-	element=document.getElementById("DeadAddFigure");
-	element.innerHTML=" ( +"+deadAddVal+" )";;
+	element=document.getElementById("DeadAddFigure1");
+	element.innerHTML=" [ +"+deadAddVal1+" ]";
 
+
+	element=document.getElementById("DeadAddFigure2");
+	element.innerHTML=" ( +"+deadAddVal2+" )";
 
 }

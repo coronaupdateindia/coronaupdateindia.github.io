@@ -16,12 +16,12 @@ th, td {
 }
 
 .sdashboard {
-  padding: 7px;
+  padding: 0px;
   text-align: center;
   font-size: 17px;
   color: #000;
-  line-height: 2pt;
-  margin-bottom:25px;
+  line-height: 0pt;
+  margin-bottom:0px;
 }
 
 .dashboard {
@@ -30,7 +30,6 @@ th, td {
   font-size: 35px;
   color: #000;
   line-height: 2pt;
-  margin-bottom:15px;
 }
 
 .Hdashboard {
