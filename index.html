@@ -7,14 +7,14 @@
 
 <body   style="background-color:#f3f3f3">
  <div class="topnav">
-  <a class="active" href="#">NationWide Dashboard</a>
-  <a href="#ConfirmedCanvas">Confirmed</a>
-  <a href="#ActiveCanvas2">Active</a>
-  <a href="#CuredCanvas3">Cured Etc</a>
-  <a href="#DeadCanvas4">Dead</a>
-  <a class="active" href="#StateWise">State Dashboard</a>
-  <a href="#StateCanvas">Pie Chart</a>
-  <a href="#StateGraphs">State Graphs</a>
+  <a class="active" href="index.html">Home</a>
+  <a href="index.html#StateDashboardAnchor">State Dashboard</a>
+  <a href="index.html#StateTableAnchor">State Graphs</a>
+  <a class="active" href="index.html">NationWide</a>
+  <a href="index.html#ConfirmedAnchor">Confirmed</a>
+  <a href="index.html#ActiveAnchor">Active</a>
+  <a href="index.html#CuredAnchor">Cured Etc</a>
+  <a href="index.html#DeadAnchor">Dead</a>
 
 </div> 
 
@@ -35,7 +35,7 @@
                          <TD  class="imgTdDashboard" width="20%"><IMG SRC="corona.gif"></TD>
  
                          <TD class="confirmTdDashboard" width="20%">
-                         <a href="#ConfirmedCanvas">
+                         <a href="#ConfirmedAnchor">
                          <P class= "dashboard" ID="ConfirmedFigure"    >         </P>
 			 <P class="sdashboard" ID="ConfirmedAddFigure2">         </P>
 			 <P class="sdashboard" ID="ConfirmedAddFigure1">         </P>
@@ -44,7 +44,7 @@
 			</TD>
 
                          <TD class="activeTdDashboard" width="20%">
-                         <a href=  "#ActiveCanvas2">
+                         <a href=  "#ActiveAnchor">
                          <P class= "dashboard" ID="ActiveFigure"      >          </P>
                          <P class="sdashboard" ID="ActiveAddFigure2"  >          </P>
                          <P class="sdashboard" ID="ActiveAddFigure1"  >          </P>
@@ -53,7 +53,7 @@
                          </TD> 
 
                          <TD class="curedTdDashboard" width="20%">
-                         <a href=   "#CuredCanvas3">
+                         <a href=   "#CuredAnchor">
                          <P class= "dashboard" ID="CuredFigure"      >        </P>   
                          <P class="sdashboard" ID="CuredAddFigure2"  >        </P>
                          <P class="sdashboard" ID="CuredAddFigure1"  >        </P>
@@ -62,7 +62,7 @@
                          </TD>
                          
                          <TD class="deadTdDashboard" width="20%">
-			 <a href=    "#DeadCanvas4">
+			 <a href=    "#DeadAnchor">
 
                          <P class= "dashboard" ID= "DeadFigure"      >     </P>     
                          <P class="sdashboard" ID= "DeadAddFigure2"  >     </P>
@@ -74,40 +74,49 @@
 </div> 
 
 <p class="commentDashboard"><i>Additional cases as given in ( ) are since 2 last updates (generally around 24 hours) & [ ] are since last update</i></p>
+
+<p id="ConfirmedAnchor"></p>
 <br>
-<canvas id="ConfirmedCanvas" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+<br>
+<br>
+<canvas id="ConfirmedCanvas" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
+<p id="ActiveAnchor"></p>
 <br>
 <br>
 <br>
-<canvas id="ActiveCanvas2" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+<canvas id="ActiveCanvas2" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
+<p id="CuredAnchor"></p>
 <br>
 <br>
 <br>
-<canvas id="CuredCanvas3" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+<canvas id="CuredCanvas3" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
+<p id="DeadAnchor"></p>
 <br>
 <br>
 <br>
-<canvas id="DeadCanvas4" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+<canvas id="DeadCanvas4" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
-<br>
+<p id="StateDashboardAnchor"></p>
 <br>
 <br>
 <H2 ID="StateWise">STATE WISE DASHBOARD <SUP>*#</SUP></H2>
 
-<br>
-<canvas id="StateCanvas" width="1200" height="550" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+<canvas id="StateCanvas" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
 
-<br>
 
+<p id="StateTableAnchor"></p>
+<br>
+<br>
+<br>
 <H3 ID="StateGraphs">CLICK STATE NAME BELOW FOR THAT STATE'S GRAPH OR <U> <a href='indiaMap.html'>HERE TO SEE STATE WISE GRAPHS USING MAP OF INDIA</A></U><SUP>*#</SUP></H3>
 <P>
 Format : (Confirmed, Cured/Discharged/Migrated, Dead)
@@ -165,8 +174,6 @@ Format : (Confirmed, Cured/Discharged/Migrated, Dead)
 <H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
 <p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
 </p></H5>
-<p>
-<br>
 <br>
 <br>
 <B>** DISCLAIMER: MUST READ IN FULL BEFORE READING THIS WEBSITE **<BR>

@@ -1,37 +1,140 @@
 
 <!DOCTYPE html>
 <html>
-<body>
-<B><a href='disclaimer.html'>** DISCLAIMER: MUST READ THE CONTENT OF THIS LINK IN FULL BEFORE PROCEEDING ON THIS WEBSITE **</a><BR>
-<p>
-<p>
+<head>
 
-<h2>Lakshadweep</h2>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body   style="background-color:#f3f3f3">
+ <div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="index.html#StateTableAnchor">State Graphs</a>
+  <a class="active" href="Lakshadweep.html">Lakshadweep</a>
+
+  <a href="#ConfirmedAnchor">Confirmed</a>
+  <a href="#ActiveAnchor">Active</a>
+  <a href="#CuredAnchor">Cured Etc</a>
+  <a href="#DeadAnchor">Dead</a>
+
+</div> 
+
+<div style="padding-left:16px" ID="CurrentStateAnchor">
 <P>
-<canvas id='myCanvas1' width='1000' height='500' style='border:1px solid #d3d3d3;'>
-Your browser does not support the canvas element.
-</canvas>
-<canvas id='myCanvas2' width='1000' height='500' style='border:1px solid #d3d3d3;'>
-Your browser does not support the canvas element.
-</canvas>
-<canvas id='myCanvas3' width='1000' height='500' style='border:1px solid #d3d3d3;'>
-Your browser does not support the canvas element.
-</canvas>
+<a href='disclaimer.html'>** DISCLAIMER: MUST READ THE CONTENT OF THIS LINK IN FULL BEFORE PROCEEDING ON THIS WEBSITE **</a><BR>
 
-<canvas id='myCanvas4' width='1000' height='500' style='border:1px solid #d3d3d3;'>
+<B>
+<H2 ID="StateID" ALIGN='CENTRE'>LAKSHADWEEP DASHBOARD OF CORONAVIRUS CASES*</H2>
+</div>
+
+<p>
+<p>
+<div>
+<table class="tableDashboard" width="1227px">
+<TR class="trDashboard"><TD class="tdDashboard" >Covid-19 status as on:<TD colspan="4"  ID="dateFigure"></TD></TR> 
+<TR class="trDashboard">
+                         <TD  class="imgTdDashboard" width="20%"><IMG SRC="corona.gif"></TD>
+ 
+                         <TD class="confirmTdDashboard" width="20%">
+                         <a href="#ConfirmedAnchor">
+                         <P class= "dashboard" ID="ConfirmedFigure"    >         </P>
+			 <P class="sdashboard" ID="ConfirmedAddFigure2">         </P>
+			 <P class="sdashboard" ID="ConfirmedAddFigure1">         </P>
+			 <P class="Hdashboard"                        >Confirmed</P>
+                         </a>
+			</TD>
+
+                         <TD class="activeTdDashboard" width="20%">
+                         <a href=  "#ActiveAnchor">
+                         <P class= "dashboard" ID="ActiveFigure"      >          </P>
+                         <P class="sdashboard" ID="ActiveAddFigure2"  >          </P>
+                         <P class="sdashboard" ID="ActiveAddFigure1"  >          </P>
+			 <P class="Hdashboard"                       >Active    </P>               
+                         </a>
+                         </TD> 
+
+                         <TD class="curedTdDashboard" width="20%">
+                         <a href=   "#CuredAnchor">
+                         <P class= "dashboard" ID="CuredFigure"      >        </P>   
+                         <P class="sdashboard" ID="CuredAddFigure2"  >        </P>
+                         <P class="sdashboard" ID="CuredAddFigure1"  >        </P>
+			 <P class="Hdashboard"                       >Cured/Left </P>
+                         </a>
+                         </TD>
+                         
+                         <TD class="deadTdDashboard" width="20%">
+			 <a href=    "#DeadAnchor">
+
+                         <P class= "dashboard" ID= "DeadFigure"      >     </P>     
+                         <P class="sdashboard" ID= "DeadAddFigure2"  >     </P>
+                         <P class="sdashboard" ID= "DeadAddFigure1"  >     </P>
+                         <P class="Hdashboard"                       >Dead </P>
+                     </a></TD>
+</TR>
+</TABLE>
+</div> 
+
+<p class="commentDashboard"><i>Additional cases as given in ( ) are since 2 last updates (generally around 24 hours) & [ ] are since last update</i></p>
+
+<p id="ConfirmedAnchor"></p>
+<br>
+<br>
+<br>
+<canvas id="ConfirmedCanvas" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
 Your browser does not support the canvas element.
 </canvas>
-
-<p id="demo"></p>
-
-<script src='Lakshadweep.js'></script>
+<p id="ActiveAnchor"></p>
+<br>
+<br>
+<br>
+<canvas id="ActiveCanvas2" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+Your browser does not support the canvas element.
+</canvas>
+<p id="CuredAnchor"></p>
+<br>
+<br>
+<br>
+<canvas id="CuredCanvas3" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+Your browser does not support the canvas element.
+</canvas>
+<p id="DeadAnchor"></p>
+<br>
+<br>
+<br>
+<canvas id="DeadCanvas4" width="1200" height="600" style="border:1px solid #d3d3d3;background-color:#fffffF;">
+Your browser does not support the canvas element.
+</canvas>
+<P>
+<p>
+<H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
+<p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
+</p></H5>
+<br>
+<br>
+<B>** DISCLAIMER: MUST READ IN FULL BEFORE READING THIS WEBSITE **<BR>
+<BR>
+THIS WEBSITE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.<BR>
+<BR>
+<BR>
+WE TAKE NO RESPONSIBILITY OF THE INFORMATION PRESENTED ON THIS SITE.
+THE DATA PRESENTED HERE AT ANY POINT IN TIME MAY NOT BE COMPLETE, ACCURATE AND/OR UPTODATE. 
+THUS VIEWER OF THIS PAGE "MUST NOT" RELY ON THIS INFORMATION FOR ANY PRACTICAL
+USE, RATHER REFER TO THE REVELENT MINISTRY'S SITE FOR OFFICAL DATA. 
+</B>
+<script src=  "Lakshadweep.js"></script>
 <script src=  "graphDraw.js"></script>
 <script>
-graphDraw('myCanvas1',-1);
-graphDraw('myCanvas2',-2);
-graphDraw('myCanvas3',2);
-graphDraw('myCanvas4',3);
-
+displaySummaryData();
+graphDraw("ConfirmedCanvas" ,-1);
+graphDraw("ActiveCanvas2",-2);
+graphDraw("CuredCanvas3", 2);
+graphDraw("DeadCanvas4", 3);
 </script>
 
 </body>

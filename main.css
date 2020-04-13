@@ -118,7 +118,9 @@ td:hover {background-color:#d5d5d5;}
 .topnav {
   overflow: hidden;
   background-color: #ffffff;
-  width: 1205px;
+  position: fixed;
+  top: 0;
+  width: 1201px;
 }
 
 .topnav a {
