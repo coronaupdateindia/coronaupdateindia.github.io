@@ -26,15 +26,21 @@ function graphDraw(canvasIdStr,typeId){
 	startpointy= (rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor;
 
 	maxscaleSize = rawData[rawData.length-1][0]                                    - rawData[0][0];
+	maxscaleSizeY=0;
+	for (i=0;i<rawData.length;i++)
+	{
+		
+		currentVal=((rawData[i][1][firstVal]+rawData[i][1][secondVal])/divFactor)
+		//-((rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor);
+		if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
 
-	maxscaleSizeY=((rawData[rawData.length-1][1][firstVal]+rawData[rawData.length-1][1][secondVal])/divFactor)
-	//-((rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor);
-
-	if (typeId==-2){
-	typeStr=typeStrArray[4];
-	maxscaleSizeY=(rawData[rawData.length-1][1][0]+rawData[rawData.length-1][1][1]-rawData[rawData.length-1][1][2]-rawData[rawData.length-1][1][3]);
+		if (typeId==-2){
+		typeStr=typeStrArray[4];
+		currentVal=(rawData[i][1][0]+rawData[i][1][1]-rawData[i][1][2]-rawData[i][1][3]);
+		if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
+		}
+		
 	}
-
 	oldDataY=0;
 	oldPointX=0;
 	oldPointY=maxHeight;
