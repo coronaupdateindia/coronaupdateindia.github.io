@@ -147,14 +147,17 @@ td:hover {background-color:#d5d5d5;}
 }
 
 .commentDashboard {
-margin-left:265px;
-margin-top:0px;
-font-size: 10px;
-color:#626262;  }
+  margin-left:265px;
+  margin-top:0px;
+  font-size: 10px;
+  color:#626262;  
+}
 
 
 
 .disclaimer {
-font-size: 12px;
+  font-size: 12px;
+  line-height: 2pt;
+  margin-bottom:0px;
 }
 
