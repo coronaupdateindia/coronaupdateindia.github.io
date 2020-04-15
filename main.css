@@ -2,11 +2,37 @@ html {
   scroll-behavior: smooth;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 1201px;
+}
+
+.topnav a {
+  float: left;
+  color: #020202;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #fCAF50;
+  color: white;
+}
+
 .stateTable {
   border-collapse: collapse;
   width: 100%;
 }
-
 
 sup {  font-size: 0.4em; }
 
@@ -119,32 +145,6 @@ tr:nth-child(odd) {background-color: #ffffff;}
 
 td:hover {background-color:#d5d5d5;}
 
-.topnav {
-  overflow: hidden;
-  background-color: #ffffff;
-  position: fixed;
-  top: 0;
-  width: 1201px;
-}
-
-.topnav a {
-  float: left;
-  color: #020202;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #fCAF50;
-  color: white;
-}
 
 .commentDashboard {
   margin-left:265px;
@@ -161,3 +161,12 @@ td:hover {background-color:#d5d5d5;}
   margin-bottom:0px;
 }
 
+.anchorTags{
+  padding-top:50px;
+}
+
+.graphCanvas {
+  border:1px;
+  solid #d3d3d3;
+  background-color:#fffffF;
+}
