@@ -146,14 +146,15 @@ td:hover {background-color:#d5d5d5;}
   color: white;
 }
 
-  .commentDashboard {
+.commentDashboard {
 margin-left:265px;
 margin-top:0px;
-font-size: .7em;
+font-size: .6em;
 color:#626262;  }
 
 
+
+.disclaimer {
+font-size: .8em;
 }
-
-
 
