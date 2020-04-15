@@ -309,41 +309,61 @@ function displaySummaryData()
 	element=document.getElementById("dateFigure");
 	element.innerHTML=rawData[rawData.length-1][0];
 
+	//Confirmed
 	element=document.getElementById("ConfirmedFigure");
 	element.innerHTML=confirmedVal;
 
 	element=document.getElementById("ConfirmedAddFigure1");
-	element.innerHTML="[+"+confirmedAddVal1+"]";
+	signStr="+"
+	if (confirmedAddVal1<=0){signStr="";}
+	element.innerHTML="["+signStr+confirmedAddVal1+"]";
 
 	element=document.getElementById("ConfirmedAddFigure2");
-	element.innerHTML="( +"+confirmedAddVal2+" )";
+	signStr="+"
+	if (confirmedAddVal2<=0){signStr="";}
+	element.innerHTML="( "+signStr+confirmedAddVal2+" )";
 
+	//Active
 	element=document.getElementById("ActiveFigure");
 	element.innerHTML=activeVal;
 
 	element=document.getElementById("ActiveAddFigure1");
-	element.innerHTML="[+"+activeAddVal1+"]";
+	signStr="+"
+	if (activeAddVal1<=0){signStr="";}
+	element.innerHTML="["+signStr+activeAddVal1+"]";
 
 	element=document.getElementById("ActiveAddFigure2");
-	element.innerHTML="( +"+activeAddVal2+" )";
+	signStr="+"
+	if (activeAddVal2<=0){signStr="";}
+	element.innerHTML="( "+signStr+activeAddVal2+" )";
 
+	//Cured
 	element=document.getElementById("CuredFigure");
 	element.innerHTML=curedVal;
 
 	element=document.getElementById("CuredAddFigure1");
-	element.innerHTML=" [+"+curedAddVal1+"]";
+	signStr="+"
+	if (curedAddVal1<=0){signStr="";}
+	element.innerHTML=" ["+signStr+curedAddVal1+"]";
 
 	element=document.getElementById("CuredAddFigure2");
-	element.innerHTML=" ( +"+curedAddVal2+" )";
+	signStr="+"
+	if (curedAddVal1<=0){signStr="";}
+	element.innerHTML=" ( "+signStr+curedAddVal2+" )";
 
+	//Dead
 	element=document.getElementById("DeadFigure");
 	element.innerHTML=deadVal;
 
 	element=document.getElementById("DeadAddFigure1");
-	element.innerHTML=" [+"+deadAddVal1+"]";
+	signStr="+"
+	if (deadAddVal1<=0){signStr="";}
+	element.innerHTML=" ["+signStr+deadAddVal1+"]";
 
 
 	element=document.getElementById("DeadAddFigure2");
-	element.innerHTML=" ( +"+deadAddVal2+" )";
+	signStr="+"
+	if (deadAddVal2<=0){signStr="";}
+	element.innerHTML=" ( "+signStr+deadAddVal2+" )";
 
 }
