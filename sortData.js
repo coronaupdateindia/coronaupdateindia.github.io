@@ -39,8 +39,13 @@ function getSortedData(unsortedData,baseStateList){
 
 function displayStateSummary(unsortedData,sortedStateList){
 
+	element = document.getElementById("stateTable");
+	innerHTMLStr=""
+	//innerHTMLStr="<TR><TD><TABLE>";
+	headerRowStr="<TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>STATE</TH><TH>CONFIRMED</TH><TH>Cured Etc</TH><TH>DEAD</TH></TR>";
+	innerHTMLStr=innerHTMLStr+headerRowStr;
 	for (i=0;i<sortedStateList.length;i++){
-		element = document.getElementById("ST"+i);
+
 		spacer="";
 		if ((i+1).toString().length==1){spacer=" ";}
 
@@ -68,8 +73,24 @@ function displayStateSummary(unsortedData,sortedStateList){
 		if (text3.toString().length==1){spacer3="  ";}
 		if (text3.toString().length==2){spacer3=" ";}
 
-		element.innerHTML=spacer+(i+1)+"."+" ("+spacer1+text1+","+spacer2+text2+","+spacer3+text3+")  "+sortedStateList[i];
-		element.href=sortedStateList[i]+".html";
+		/*if (i==parseInt(sortedStateList.length/2))
+		{
+			innerHTMLStr=innerHTMLStr+"</TABLE></TD><TD><TABLE>"+headerRowStr;
+		}*/
+
+
+		//element.innerHTML=spacer+(i+1)+"."+" ("+spacer1+text1+","+spacer2+text2+","+spacer3+text3+")  "+sortedStateList[i];
+		innerHTMLStr=innerHTMLStr+"<TR class='statetr' onclick=\"document.location='"+sortedStateList[i]+".html'\">";
+		innerHTMLStr=innerHTMLStr+"<TD>"+(i+1)+".</TD>";
+		innerHTMLStr=innerHTMLStr+"<TD>"+sortedStateList[i]+"</TD>";
+		innerHTMLStr=innerHTMLStr+"<TD>"+text1+"</TD>";
+		innerHTMLStr=innerHTMLStr+"<TD>"+text2+"</TD>";
+		innerHTMLStr=innerHTMLStr+"<TD>"+text3+"</TD>";
+		innerHTMLStr=innerHTMLStr+"</TR>";
+		innerHTMLStr=innerHTMLStr+"</A>";		
 
 	}
+
+	//innerHTMLStr=innerHTMLStr+"</TABLE></TD></TR>";
+	element.innerHTML=innerHTMLStr;
 }
