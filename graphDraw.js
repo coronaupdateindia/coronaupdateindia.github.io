@@ -187,9 +187,17 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 				rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
 				rMinutes =rawData[idx][0].getMinutes();if (rMinutes<10){rMinutes="0"+rMinutes ;}
 
+				if (typeStr!="New Cases per Day starting 26/3")
+				{
+					rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
+					drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
+				}
+				else
+				{
+					rtext=rMonth+"/"+rDate;
+					drawText(ctx,rtext,10,newPointX,maxHeight+marginY-12,-3,4,-.5);
+				}
 
-				rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
-				drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
 			}
 			oldPrnPointX=newPointX;
 			oldPrnPointY=newPointY;
