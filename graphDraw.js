@@ -1,6 +1,5 @@
-function graphDraw(canvasIdStr,typeId){
+function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,noPoints,legendList){
 
-	typeStrArray=['Confirmed',' ','Cured/Discharged/Migrated','Dead','Active'];
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
 	var marginX=50;
@@ -17,31 +16,34 @@ function graphDraw(canvasIdStr,typeId){
 		firstVal=0;
 		secondVal=1;
 		divFactor=1;
-		typeStr=typeStrArray[0];
 	}
-	else
-	{		typeStr=typeStrArray[typeId];}
 	
 	startpointx= rawData[0][0].valueOf(); 
 	startpointy= (rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor;
 
 	maxscaleSize = rawData[rawData.length-1][0]                                    - rawData[0][0];
-	maxscaleSizeY=0;
-	for (i=0;i<rawData.length;i++)
-	{
-		
-		currentVal=((rawData[i][1][firstVal]+rawData[i][1][secondVal])/divFactor)
-		//-((rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor);
-		if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
 
-		if (typeId==-2){
-		typeStr=typeStrArray[4];
-		currentVal=(rawData[i][1][0]+rawData[i][1][1]-rawData[i][1][2]-rawData[i][1][3]);
-		if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
+
+	if (maxscaleSizeY==-1)
+	{
+		maxscaleSizeY=0;
+		for (i=0;i<rawData.length;i++)
+		{
+			
+			currentVal=((rawData[i][1][firstVal]+rawData[i][1][secondVal])/divFactor)
+			//-((rawData[0][1][firstVal]+rawData[0][1][secondVal])/divFactor);
+			if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
+
+			if (typeId==-2){
+
+			currentVal=(rawData[i][1][0]+rawData[i][1][1]-rawData[i][1][2]-rawData[i][1][3]);
+			if (currentVal>maxscaleSizeY){maxscaleSizeY=currentVal;}
+			}
 		}
-		
 	}
+
 	oldDataY=0;
+
 	oldPointX=0;
 	oldPointY=maxHeight;
 
@@ -50,6 +52,21 @@ function graphDraw(canvasIdStr,typeId){
 
 	//document.getElementById("demo").innerHTML = maxscaleSize;
 
+
+	ctx.fillStyle="rgb(200,200,200)";
+	ctx.font = "bold 17px Arial";
+	ctx.fillText(typeStr,((maxWidth/2)-(6*typeStr.length)/2),20);
+	ctx.stroke();	
+
+	ctx.fillStyle="rgb(140,140,140)";
+
+	ctx.font = "bold 17px Arial";
+	ctx.fillText(typeStr,((maxWidth/2)-(6*typeStr.length)/2)-1,20-1);
+
+	ctx.strokeStyle="rgb(0,0,0)";
+	ctx.setLineDash([0,0]);
+
+	ctx.beginPath();
 	ctx.moveTo(0      , maxHeight);
 	ctx.lineTo(maxWidth, maxHeight);
 	ctx.stroke(); 
@@ -58,18 +75,37 @@ function graphDraw(canvasIdStr,typeId){
 	ctx.lineTo(0 , 0);
 	ctx.stroke(); 
 
-	ctx.fillStyle="rgb(200,200,200)";
-	ctx.font = "bold 17px Arial";
-	ctx.fillText(typeStr,((maxWidth/2)-(typeStr.length)/2),20);
-	ctx.stroke();	
+	ctx.beginPath();
+	ctx.strokeStyle="rgb(200,200,200)";
+	ctx.setLineDash([1,3]);
 
-	ctx.fillStyle="rgb(140,140,140)";
+	for (i=1;i<maxHeight/50;i++)
+	{
+		ctx.moveTo(0      , maxHeight-(i*50));
+		ctx.lineTo(maxWidth, maxHeight-(i*50));
+		ctx.stroke(); 
+	}
 
-	ctx.font = "bold 17px Arial";
-	ctx.fillText(typeStr,((maxWidth/2)-(typeStr.length)/2)-1,20-1);
-	ctx.stroke();	
 
+	ctx.setLineDash([0,0]);
+	ctx.beginPath();
+	
+	if (legendList.length!=0)
+	{
+		rgbStr="rgb(100,100,255)";
+		if (lineColor!=""){rgbStr=lineColor;}
+		
+		ctx.fillStyle=rgbStr;
+		ctx.strokeStyle=rgbStr;
+		ctx.beginPath();
 
+		ctx.moveTo(legendList[1]   , legendList[2]);
+		ctx.lineTo(legendList[1]+40, legendList[2]);
+
+		drawText(ctx,legendList[0],12,legendList[1]+40+3,legendList[2]+4,0,0,0)
+		ctx.stroke();
+	}
+	
 	for (let idx=0; idx<rawData.length;idx++){
 
 		currDataX = rawData[idx][0].valueOf();
@@ -87,8 +123,11 @@ function graphDraw(canvasIdStr,typeId){
 		//newPointY=maxHeight-maxHeight*(currDataY-startpointy)/(maxscaleSizeY*1.1);
 		newPointY=maxHeight-(currDataY*(maxHeight-20)/(maxscaleSizeY));
 		
-		ctx.fillStyle="rgb(180,180,255,0.35)";
-		ctx.strokeStyle="rgb(180,180,255,0.35)";
+		rgbStr="rgb(180,180,255,0.35)";
+		if (fillColor!=""){rgbStr=fillColor;}
+
+		ctx.fillStyle=rgbStr;
+		ctx.strokeStyle=rgbStr;
 		ctx.beginPath();
 
 		ctx.moveTo(oldPointX, maxHeight);
@@ -99,8 +138,11 @@ function graphDraw(canvasIdStr,typeId){
 
 		ctx.fill(); 
 
-		ctx.fillStyle="rgb(100,100,255)";
-		ctx.strokeStyle="rgb(100,100,255)";
+		rgbStr="rgb(100,100,255)";
+		if (lineColor!=""){rgbStr=lineColor;}
+
+		ctx.fillStyle=rgbStr;
+		ctx.strokeStyle=rgbStr;
 
 
 		ctx.beginPath();
@@ -110,11 +152,13 @@ function graphDraw(canvasIdStr,typeId){
 
 		ctx.stroke(); 
 
-		ctx.beginPath();
-		ctx.arc(newPointX, newPointY, 5, 0, 2 * Math.PI);
-		ctx.closePath();
-		ctx.stroke();
-
+		if (!noPoints)
+		{
+			ctx.beginPath();
+			ctx.arc(newPointX, newPointY, 5, 0, 2 * Math.PI);
+			ctx.closePath();
+			ctx.stroke();
+		}
 
 		ctx.fillStyle="rgb(0,0,0)";
 		ctx.strokeStyle="rgb(0,0,0)";
@@ -132,18 +176,21 @@ function graphDraw(canvasIdStr,typeId){
 			rtext=currDataY;
 			directionFactor=0.25;
 			addFactor=3;
-			if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;addFactor=-1;}
-			drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
 
-			rMonth   =rawData[idx][0].getMonth()+1;
-			rDate    =rawData[idx][0].getDate()   ;if (rDate   <10){rDate   ="0"   +rDate ;}
-			rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
-			rMinutes =rawData[idx][0].getMinutes();if (rMinutes<10){rMinutes="0"+rMinutes ;}
+			if (!noPoints)
+			{
+				if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;addFactor=-1;}
+				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
+			
+				rMonth   =rawData[idx][0].getMonth()+1;
+				rDate    =rawData[idx][0].getDate()   ;if (rDate   <10){rDate   ="0"   +rDate ;}
+				rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
+				rMinutes =rawData[idx][0].getMinutes();if (rMinutes<10){rMinutes="0"+rMinutes ;}
 
 
-			rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
-			drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
-
+				rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
+				drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
+			}
 			oldPrnPointX=newPointX;
 			oldPrnPointY=newPointY;
 	
@@ -156,6 +203,8 @@ function graphDraw(canvasIdStr,typeId){
 		oldPointY=newPointY;
 
 	}
+
+return maxscaleSizeY;
 }
 
 function drawText(ctx,text,fontSize,pointX,pointY,adjustmentX,adjustmentY,rotation)

@@ -94,3 +94,95 @@ function displayStateSummary(unsortedData,sortedStateList){
 	//innerHTMLStr=innerHTMLStr+"</TABLE></TD></TR>";
 	element.innerHTML=innerHTMLStr;
 }
+
+
+function getNewCasesData()
+{
+	//alert(rawData);
+	newCasesData=[];
+	for (i=0;i<rawData.length;i++)
+	{
+		
+		if (i<9){currentData=[rawData[i][0],[0,0,0,0]];}
+		else
+		{
+		 currentData=[rawData[i][0],[rawData[i][1][0]-rawData[i-2][1][0],rawData[i][1][1]-rawData[i-2][1][1],rawData[i][1][2]-rawData[i-2][1][2],rawData[i][1][3]-rawData[i-2][1][3]]];}
+		newCasesData.push(currentData);
+	}
+	//alert(newCasesData);
+	return newCasesData;
+	
+
+}
+
+
+function getNewPerDayCasesData()
+{
+
+	oldDate       =rawData[0][0];
+	oldconfirmedNo=rawData[0][1][0];
+	oldforeignNo  =rawData[0][1][1];
+	oldCuredNo    =rawData[0][1][2];
+	oldDeadNo     =rawData[0][1][3];
+
+	newDate       =rawData[0][0];
+	newconfirmedNo=rawData[0][1][0];
+	newforeignNo  =rawData[0][1][1];
+	newCuredNo    =rawData[0][1][2];
+	newDeadNo     =rawData[0][1][3];
+
+	//alert(rawData);
+	newCasesData=[];
+	for (i=1;i<rawData.length;i++)
+	{
+
+		newDate=rawData[i][0];
+
+		if (oldDate.getDate()!=newDate.getDate())
+
+		{
+			oldconfirmedNo=newconfirmedNo;
+			oldforeignNo  =newforeignNo;
+			oldCuredNo    =newCuredNo;
+			oldDeadNo     =newDeadNo;
+
+
+			currentDataList=[];
+			if (i<10){currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()),[0,0,0,0]];}
+			else
+			{
+				currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()), [currconfirmedNo,currforeignNo,currCuredNo,currDeadNo]];	
+			}
+			newCasesData.push(currentDataList);
+
+		}
+//		else
+//		{
+			newconfirmedNo=rawData[i][1][0];
+			newforeignNo  =rawData[i][1][1];
+			newCuredNo    =rawData[i][1][2];
+			newDeadNo     =rawData[i][1][3];
+			
+			currconfirmedNo=newconfirmedNo-oldconfirmedNo;
+			currforeignNo  =newforeignNo-oldforeignNo;
+			currCuredNo    =newCuredNo-oldCuredNo;
+			currDeadNo     =newDeadNo-oldDeadNo;
+
+//		}
+
+
+		oldDate=newDate;
+	}
+
+	if (oldDate.getHours()>12)
+	{
+	currentDataList=[];
+	currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()), [currconfirmedNo,currforeignNo,currCuredNo,currDeadNo]];	
+	newCasesData.push(currentDataList);
+	}
+	return newCasesData;
+	
+
+}
+
+

@@ -9,14 +9,14 @@
 <body   style="background-color:#f3f3f3">
  <div class="topnav">
   <a class="active" href="index.html">Home</a>
+  <a class="active" href="Assam.html">Top</a>
   <a href="index.html#StateTableAnchor">State Graphs</a>
-  <a class="active" href="Assam.html">Assam</a>
-
+  <a class="active" href="#SummaryAnchor">Assam</a>
   <a href="#ConfirmedAnchor">Confirmed</a>
   <a href="#ActiveAnchor">Active</a>
   <a href="#CuredAnchor">Cured Etc</a>
   <a href="#DeadAnchor">Dead</a>
-
+  <a href="#NewCasesAnchor">New Cases</a>
 </div> 
 
 <div style="padding-left:16px;padding-top:50px;" ID="CurrentStateAnchor">
@@ -76,6 +76,13 @@
 
 <p class="commentDashboard"><i>Additional cases as given in ( ) are since 2 last updates (generally around 24 hours) & [ ] are since last update</i></p>
 
+
+<p class="anchorTags" id="SummaryAnchor"></p>
+
+<canvas class="graphCanvas" id="SummaryCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
 <p class="anchorTags" id="ConfirmedAnchor"></p>
 
 <canvas class="graphCanvas" id="ConfirmedCanvas" width="1200" height="600">
@@ -84,21 +91,28 @@ Your browser does not support the canvas element.
 
 <p class="anchorTags" id="ActiveAnchor"></p>
 
-<canvas  class="graphCanvas" id="ActiveCanvas2" width="1200" height="600">
+<canvas  class="graphCanvas" id="ActiveCanvas" width="1200" height="600">
 Your browser does not support the canvas element.
 </canvas>
 
 <p class="anchorTags" id="CuredAnchor"></p>
 
-<canvas  class="graphCanvas" id="CuredCanvas3" width="1200" height="600">
+<canvas  class="graphCanvas" id="CuredCanvas" width="1200" height="600">
 Your browser does not support the canvas element.
 </canvas>
 
 <p class="anchorTags" id="DeadAnchor"></p>
 
-<canvas  class="graphCanvas" id="DeadCanvas4" width="1200" height="600">
+<canvas  class="graphCanvas" id="DeadCanvas" width="1200" height="600">
 Your browser does not support the canvas element.
 </canvas>
+
+<p class="anchorTags" id="NewCasesAnchor"></p>
+
+<canvas  class="graphCanvas" id="NewCasesCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
 <P>
 <p>
 <H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
@@ -124,12 +138,29 @@ USE, RATHER REFER TO THE REVELENT MINISTRY'S SITE FOR OFFICAL DATA.
 </B>
 <script src=  "Assam.js"></script>
 <script src=  "graphDraw.js"></script>
-<script>
+<script src="sortData.js"></script><script>
 displaySummaryData();
-graphDraw("ConfirmedCanvas" ,-1);
-graphDraw("ActiveCanvas2",-2);
-graphDraw("CuredCanvas3", 2);
-graphDraw("DeadCanvas4", 3);
+graphDraw("ConfirmedCanvas","Confirmed"               ,-1,-1,"","",false,[]);
+graphDraw("ActiveCanvas"   ,"Active"                  ,-2,-1,"","",false,[]);
+graphDraw("CuredCanvas"    ,"Cured/Discharge/Migrated", 2,-1,"","",false,[]);
+graphDraw("DeadCanvas"     ,"Dead"                    , 3,-1,"","",false,[]);
+summaryRawData=rawData;
+rawData=getNewPerDayCasesData();
+legendXPosition=20;
+legendYPosition=40;
+baseScale=graphDraw("NewCasesCanvas","New Cases per Day starting 26/3", -1,       -1,"rgb(100,100,255)","rgb(180,180,255,0.35)",false,["Confirmed",legendXPosition,legendYPosition]);
+          //graphDraw("NewCasesCanvas","", -2,baseScale,"rgb(255,200,100)","rgb(255,225,180,0.35)",true,["Active"   ,legendXPosition,40]);
+          graphDraw("NewCasesCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+20]);
+          graphDraw("NewCasesCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+40]);
+
+rawData=summaryRawData;
+legendXPosition=20;
+legendYPosition=40;
+baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","rgb(180,180,255,0.35)",false,["Confirmed",legendXPosition,legendYPosition]);
+          graphDraw("SummaryCanvas","", -2,baseScale,"rgb(255,200,100)","rgb(255,225,180,0.35)",true,["Active"   ,legendXPosition,legendYPosition+20]);
+          graphDraw("SummaryCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+40]);
+          graphDraw("SummaryCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+60]);
+
 </script>
 
 </body>

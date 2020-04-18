@@ -25,6 +25,7 @@
 .topnav a.active {
   background-color: #fCAF50;
   color: white;
+  border-right: 1px solid #ddd;
 }
 
 .stateTable {
