@@ -44,7 +44,7 @@ function displayStateSummary(unsortedData,sortedStateList){
 	element = document.getElementById("stateTable");
 	innerHTMLStr=""
 	//innerHTMLStr="<TR><TD><TABLE>";
-	headerRowStr="<TR style='background-color: #aaaaaa'><TH WIDTH=2%></TH><TH></TH><TH></TH><TH></TH><TH></TH><TH COLSPAN=2 nowrap  WIDTH=2%>NEW CONFIRMED CASES</TH></TR><TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>STATE</TH><TH>CONFIRMED</TH><TH>Cured Etc</TH><TH>DEAD</TH><TH>2-UPDATES</TH><TH>1-UPDATE</TH></TR>";
+	headerRowStr="<TR style='background-color: #aaaaaa'><TH WIDTH=2%></TH><TH></TH><TH></TH><TH></TH><TH></TH><TH COLSPAN=2 nowrap  WIDTH=2%  style='text-align: center'>New Confirmed since</TH><TH nowrap  WIDTH=2% style='text-align: center'>New Cured etc</TH><TH nowrap  WIDTH=2% style='text-align: center'>New Deaths</TH></TR><TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>2-Updates</TH></TR>";
 	innerHTMLStr=innerHTMLStr+headerRowStr;
 	for (i=0;i<sortedStateList.length;i++){
 
@@ -176,13 +176,37 @@ function getNewCasesForState(stateName,currValue)
 	prev1Value=0;
 	prev2Value=0;
 	
+	currList  =   stateDict[stateName];
 	prev1List = prev1StDict[stateName];
 	prev2List = prev2StDict[stateName];
 
+
 	if(prev1List){prev1Value=prev1List[0]+prev1List[1];}
 	if(prev2List){prev2Value=prev2List[0]+prev2List[1];}
+	confirmedNew=             "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+	confirmedNew=confirmedNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
 
-	return  "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td><td style='text-align: right'>   [ +"+(currValue-prev1Value)+" ]</td>";
+	currValue =0;
+	prev1Value=0;
+	prev2Value=0;
+
+	if(currList){currValue  = currList[2];}
+	if(prev1List){prev1Value=prev1List[2];}
+	if(prev2List){prev2Value=prev2List[2];}
+	curedNew=         "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+//	curedNew=curedNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
+
+	currValue =0;
+	prev1Value=0;
+	prev2Value=0;
+
+	if(currList){currValue  = currList[3];}
+	if(prev1List){prev1Value=prev1List[3];}
+	if(prev2List){prev2Value=prev2List[3];}
+	deadNew=        "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+//	deadNew=deadNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
+
+	return  confirmedNew+curedNew+deadNew;
 }
 
 function loadJS(file) {
