@@ -177,9 +177,10 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 			directionFactor=0.25;
 			addFactor=3;
 
-			if (!noPoints)
+			if (!noPoints || idx==rawData.length-1)
 			{
-				if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;addFactor=-1;}
+				if((maxHeight-newPointY)/(maxHeight)<.20 ){directionFactor=-0.40;addFactor=-1;}
+				if(noPoints && idx==rawData.length-1){directionFactor= 0.00;addFactor=-1;}
 				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
 			
 				rMonth   =rawData[idx][0].getMonth()+1;
