@@ -44,7 +44,9 @@ function displayStateSummary(unsortedData,sortedStateList){
 	element = document.getElementById("stateTable");
 	innerHTMLStr=""
 	//innerHTMLStr="<TR><TD><TABLE>";
-	headerRowStr="<TR style='background-color: #aaaaaa'><TH WIDTH=2%></TH><TH></TH><TH></TH><TH></TH><TH></TH><TH COLSPAN=2 nowrap  WIDTH=2%  style='text-align: center'>New Confirmed since</TH><TH nowrap  WIDTH=2% style='text-align: center'>New Cured etc</TH><TH nowrap  WIDTH=2% style='text-align: center'>New Deaths</TH></TR><TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>2-Updates</TH></TR>";
+	headerRowStr=             "<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH COLSPAN=4 nowrap  WIDTH=2% style='text-align: center'>New cases since last</TH></TR>"
+	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>2-Updates</TH></TR>"
+	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH COLSPAN=2  style='text-align: center'>Confirmed</TH><TH style='text-align: center'>Cured Etc</TH><TH style='text-align: center'>Dead</TH></TR>";
 	innerHTMLStr=innerHTMLStr+headerRowStr;
 	for (i=0;i<sortedStateList.length;i++){
 
