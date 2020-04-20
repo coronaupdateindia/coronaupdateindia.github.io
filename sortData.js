@@ -39,10 +39,12 @@ function getSortedData(unsortedData,baseStateList){
 
 function displayStateSummary(unsortedData,sortedStateList){
 
+	oldRawData=rawData;
+
 	element = document.getElementById("stateTable");
 	innerHTMLStr=""
 	//innerHTMLStr="<TR><TD><TABLE>";
-	headerRowStr="<TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>STATE</TH><TH>CONFIRMED</TH><TH>Cured Etc</TH><TH>DEAD</TH></TR>";
+	headerRowStr="<TR style='background-color: #aaaaaa'><TH WIDTH=2%></TH><TH></TH><TH></TH><TH></TH><TH></TH><TH COLSPAN=2 nowrap  WIDTH=2%>NEW CONFIRMED CASES</TH></TR><TR style='background-color: #aaaaaa'><TH>ORDER</TH><TH>STATE</TH><TH>CONFIRMED</TH><TH>Cured Etc</TH><TH>DEAD</TH><TH>2-UPDATES</TH><TH>1-UPDATE</TH></TR>";
 	innerHTMLStr=innerHTMLStr+headerRowStr;
 	for (i=0;i<sortedStateList.length;i++){
 
@@ -59,26 +61,6 @@ function displayStateSummary(unsortedData,sortedStateList){
 			text3=unsortedData[sortedStateList[i]][3];
 		}
 
-		spacer1="";		
-		if (text1.toString().length==1){spacer1="  ";}
-		if (text1.toString().length==2){spacer1=" ";}
-
-
-
-		spacer2="";
-		if (text2.toString().length==1){spacer2="  ";}
-		if (text2.toString().length==2){spacer2=" ";}
-
-		spacer3="";
-		if (text3.toString().length==1){spacer3="  ";}
-		if (text3.toString().length==2){spacer3=" ";}
-
-		/*if (i==parseInt(sortedStateList.length/2))
-		{
-			innerHTMLStr=innerHTMLStr+"</TABLE></TD><TD><TABLE>"+headerRowStr;
-		}*/
-
-
 		//element.innerHTML=spacer+(i+1)+"."+" ("+spacer1+text1+","+spacer2+text2+","+spacer3+text3+")  "+sortedStateList[i];
 		innerHTMLStr=innerHTMLStr+"<TR class='statetr' onclick=\"document.location='"+sortedStateList[i]+".html'\">";
 		innerHTMLStr=innerHTMLStr+"<TD>"+(i+1)+".</TD>";
@@ -86,6 +68,7 @@ function displayStateSummary(unsortedData,sortedStateList){
 		innerHTMLStr=innerHTMLStr+"<TD>"+text1+"</TD>";
 		innerHTMLStr=innerHTMLStr+"<TD>"+text2+"</TD>";
 		innerHTMLStr=innerHTMLStr+"<TD>"+text3+"</TD>";
+		innerHTMLStr=innerHTMLStr+getNewCasesForState(sortedStateList[i],text1);	
 		innerHTMLStr=innerHTMLStr+"</TR>";
 		innerHTMLStr=innerHTMLStr+"</A>";		
 
@@ -93,8 +76,9 @@ function displayStateSummary(unsortedData,sortedStateList){
 
 	//innerHTMLStr=innerHTMLStr+"</TABLE></TD></TR>";
 	element.innerHTML=innerHTMLStr;
-}
 
+	rawData=oldRawData;
+}
 
 function getNewCasesData()
 {
@@ -186,3 +170,28 @@ function getNewPerDayCasesData()
 }
 
 
+function getNewCasesForState(stateName,currValue)
+{
+
+	prev1Value=0;
+	prev2Value=0;
+	
+	prev1List = prev1StDict[stateName];
+	prev2List = prev2StDict[stateName];
+
+	if(prev1List){prev1Value=prev1List[0]+prev1List[1];}
+	if(prev2List){prev2Value=prev2List[0]+prev2List[1];}
+
+	return  "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td><td style='text-align: right'>   [ +"+(currValue-prev1Value)+" ]</td>";
+}
+
+function loadJS(file) {
+    // DOM: Create the script element
+    var jsElm = document.createElement("script");
+    // set the type attribute
+    jsElm.type = "application/javascript";
+    // make the script element load file
+    jsElm.src = file;
+    // finally insert the element to the body element in order to load the script
+    document.body.appendChild(jsElm);
+}
