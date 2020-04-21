@@ -182,7 +182,10 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 				if((maxHeight-newPointY)/(maxHeight)<.20 ){directionFactor=-0.40;addFactor=-1;}
 				if(noPoints && idx==rawData.length-1){directionFactor= 0.00;addFactor=-1;}
 				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
-			
+			}
+
+			if (!noPoints)
+			{
 				rMonth   =rawData[idx][0].getMonth()+1;
 				rDate    =rawData[idx][0].getDate()   ;if (rDate   <10){rDate   ="0"   +rDate ;}
 				rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
