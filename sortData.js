@@ -105,6 +105,8 @@ function getNewCasesData()
 function getNewPerDayCasesData()
 {
 
+	maxNumber =0;
+
 	oldDate       =rawData[0][0];
 	oldconfirmedNo=rawData[0][1][0];
 	oldforeignNo  =rawData[0][1][1];
@@ -116,6 +118,11 @@ function getNewPerDayCasesData()
 	newforeignNo  =rawData[0][1][1];
 	newCuredNo    =rawData[0][1][2];
 	newDeadNo     =rawData[0][1][3];
+
+	currconfirmedNo=0;
+	currforeignNo  =0;
+	currCuredNo    =0;
+	currDeadNo     =0;
 
 	//alert(rawData);
 	newCasesData=[];
@@ -148,12 +155,17 @@ function getNewPerDayCasesData()
 			newforeignNo  =rawData[i][1][1];
 			newCuredNo    =rawData[i][1][2];
 			newDeadNo     =rawData[i][1][3];
-			
+
+			if(maxNumber<currconfirmedNo+currforeignNo){maxNumber=currconfirmedNo+currforeignNo;}
+			if(maxNumber<currCuredNo){maxNumber=currCuredNo;}
+			if(maxNumber<currDeadNo){maxNumber=currDeadNo;}
+
 			currconfirmedNo=newconfirmedNo-oldconfirmedNo;
 			currforeignNo  =newforeignNo-oldforeignNo;
 			currCuredNo    =newCuredNo-oldCuredNo;
 			currDeadNo     =newDeadNo-oldDeadNo;
 
+			
 //		}
 
 
@@ -162,11 +174,16 @@ function getNewPerDayCasesData()
 
 	if (oldDate.getHours()>12)
 	{
-	currentDataList=[];
-	currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()), [currconfirmedNo,currforeignNo,currCuredNo,currDeadNo]];	
-	newCasesData.push(currentDataList);
+		if(maxNumber<currconfirmedNo+currforeignNo){maxNumber=currconfirmedNo+currforeignNo;}
+		if(maxNumber<currforeignNo){maxNumber=currforeignNo;}
+		if(maxNumber<currCuredNo){maxNumber=currCuredNo;}
+		if(maxNumber<currDeadNo){maxNumber=currDeadNo;}
+
+		currentDataList=[];
+		currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()), [currconfirmedNo,currforeignNo,currCuredNo,currDeadNo]];	
+		newCasesData.push(currentDataList);
 	}
-	return newCasesData;
+	return [maxNumber,newCasesData];
 	
 
 }
