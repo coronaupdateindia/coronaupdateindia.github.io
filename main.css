@@ -38,7 +38,7 @@ sup {  font-size: 0.4em; }
 th, td {
   padding: 5px;
   text-align: left;
-  white-space: nowrap;
+
   border-bottom: 1px solid #ddd;
   border-right: 1px solid #ddd;
 
