@@ -211,7 +211,7 @@ baseScale=lst[0];
 rawData=lst[1];
 legendXPosition=20;
 legendYPosition=40;
-graphDraw("NewCasesCanvas","New Cases per Day starting 26/3", -1,baseScale,"rgb(100,100,255)","rgb(180,180,255,0.35)",false,["Confirmed",legendXPosition,legendYPosition]);
+graphDraw("NewCasesCanvas","New Cases per Day starting 26/3", -1,baseScale,"rgb(100,100,255)","rgb(180,180,255,0.35)",false,["Confirmed",legendXPosition,legendYPosition],"",true);
 //graphDraw("NewCasesCanvas",""                             , -2,baseScale,"rgb(255,200,100)","rgb(255,225,180,0.35)",true,["Active"   ,legendXPosition,40]);
 graphDraw("NewCasesCanvas"  ,""                             ,  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+20]);
 graphDraw("NewCasesCanvas"  ,""                             ,  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+40]);
@@ -226,17 +226,17 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
 
 summaryRawData=rawData;
 rawData=getGrowthRateData();
-graphDraw("growthRateCanvas","Confirmed Cases Growth Rate (%) based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[],"%");
+graphDraw("growthRateCanvas","Confirmed Cases Growth Rate (%) based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[],"%",true);
 rawData=summaryRawData;
 
 summaryRawData=rawData;
 rawData=getDoublingData();
-graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[]);
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[],"",true);
 rawData=summaryRawData;
 
 summaryRawData=rawData;
 rawData=getDoubledSinceLastXDaysData();
-graphDraw("doubledCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[]);
+graphDraw("doubledCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[],"",true);
 rawData=summaryRawData;
 
 </script>

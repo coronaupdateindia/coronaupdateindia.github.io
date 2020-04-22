@@ -1,9 +1,16 @@
-function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,noPoints,legendList,YValueSuffix){
+function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,noPoints,legendList,YValueSuffix,noTime){
 
 	if (typeof(YValueSuffix)=="undefined")
 	{
 		YValueSuffix="";
 	}
+
+
+	if (typeof(noTime)=="undefined")
+	{
+		noTime=false;
+	}
+
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
 	var marginX=50;
@@ -195,7 +202,7 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 				rHours   =rawData[idx][0].getHours()  ;if (rHours  <10){rHours  ="0"   +rHours;}
 				rMinutes =rawData[idx][0].getMinutes();if (rMinutes<10){rMinutes="0"+rMinutes ;}
 
-				if (typeStr!="New Cases per Day starting 26/3")
+				if (!noTime)
 				{
 					rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
 					drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
