@@ -118,6 +118,24 @@ Your browser does not support the canvas element.
 Your browser does not support the canvas element.
 </canvas>
 
+<p class="anchorTags" id="growthRateAnchor"></p>
+
+<canvas  class="graphCanvas" id="growthRateCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
+<p class="anchorTags" id="doublingAnchor"></p>
+
+<canvas  class="graphCanvas" id="doublingCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
+<p class="anchorTags" id="doublingAnchor"></p>
+
+<canvas  class="graphCanvas" id="doubledCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
 <p  class="anchorTags" id="StateDashboardAnchor"></p>
 
 <H2 ID="StateWise">STATE WISE DASHBOARD <SUP>*#</SUP></H2>
@@ -206,11 +224,20 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
           graphDraw("SummaryCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+40]);
           graphDraw("SummaryCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+60]);
 
+summaryRawData=rawData;
+rawData=getGrowthRateData();
+graphDraw("growthRateCanvas","Confirmed Cases Growth Rate based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[]);
+rawData=summaryRawData;
 
-//summaryRawData=rawData;
-//rawData=getDoublingData();
-//graphDraw("doublingCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[]);
-//rawData=summaryRawData;
+summaryRawData=rawData;
+rawData=getDoublingData();
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[]);
+rawData=summaryRawData;
+
+summaryRawData=rawData;
+rawData=getDoubledSinceLastXDaysData();
+graphDraw("doubledCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[]);
+rawData=summaryRawData;
 
 </script>
 
