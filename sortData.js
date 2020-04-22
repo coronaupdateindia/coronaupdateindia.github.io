@@ -275,10 +275,10 @@ function getGrowthRateData()
 	for (i=8;i<cummulativeDataList.length-1;i++)
 	{
 		pastDays=3;
-		confirmedRate=((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1]-cummulativeDataList[i-pastDays][1][0]-cummulativeDataList[i-pastDays][1][1])/(cummulativeDataList[i-pastDays][1][0]+cummulativeDataList[i-pastDays][1][1]));
+		confirmedRate=((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1]-cummulativeDataList[i-pastDays][1][0]-cummulativeDataList[i-pastDays][1][1])/(cummulativeDataList[i-pastDays][1][0]+cummulativeDataList[i-pastDays][1][1]))/pastDays;
 		foreignRate  =0;
-		curedRate    =((cummulativeDataList[i][1][2]-cummulativeDataList[i-1][1][2])/cummulativeDataList[i-1][1][2]);
-		DeadRate     =((cummulativeDataList[i][1][3]-cummulativeDataList[i-1][1][3])/cummulativeDataList[i-1][1][3]);;
+		curedRate    =((cummulativeDataList[i][1][2]-cummulativeDataList[i-1][1][2])/cummulativeDataList[i-1][1][2])/pastDays;
+		DeadRate     =((cummulativeDataList[i][1][3]-cummulativeDataList[i-1][1][3])/cummulativeDataList[i-1][1][3])/pastDays;
 
 		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
 		
