@@ -4,7 +4,7 @@
 <title>CoronaVirus Covid19 Dashboard for India</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="Keywords" content="CoronaVirus,Covid19,Covid 19,Covid-19,ChineseVirus,WuhanVirus,India,Dashboard,States,State, Graph,Graphs,Andhra Pradesh,Arunachal Pradesh,Assam,Bihar,Chandigarh,Chhattisgarh,Delhi,Goa,Gujarat,Haryana,Himachal Pradesh,Jharkhand,Jammu and Kashmir,Karnataka,Kerala,Ladakh,Madhya Pradesh,Maharashtra,Manipur,Meghalaya,Mizoram,Nagaland,Odisha,Puducherry,Punjab,Rajasthan,Sikkim,Tamil Nadu,Telengana,Tripura,Uttar Pradesh,Uttarakhand,West Bengal,Lakshadweep,Dadra and Nagar Haveli,Daman and Diu,Andaman and Nicobar Islands">
+<meta name="Keywords" content="Corona India Update, Corona, CoronaVirus,Covid19,Covid 19,Covid-19,ChineseVirus,WuhanVirus,India,Dashboard,update, Confirmed,Active,Cured,Dead,New Cases,States,State, Graph,Graphs,Andhra Pradesh,Arunachal Pradesh,Assam,Bihar,Chandigarh,Chhattisgarh,Delhi,Goa,Gujarat,Haryana,Himachal Pradesh,Jharkhand,Jammu and Kashmir,Karnataka,Kerala,Ladakh,Madhya Pradesh,Maharashtra,Manipur,Meghalaya,Mizoram,Nagaland,Odisha,Puducherry,Punjab,Rajasthan,Sikkim,Tamil Nadu,Telengana,Tripura,Uttar Pradesh,Uttarakhand,West Bengal,Lakshadweep,Dadra and Nagar Haveli,Daman and Diu,Andaman and Nicobar Islands">
 <meta name="Description" content="Detailed CoronaVirus (Covid19) Cases Dashboard designed specifically for India providing nationwide and statwise dashboards and progression graphs providing statistics for Confirmed, Active, Cured, Dead and new cases">
 
 <link rel="stylesheet" type="text/css" href="main.css">
@@ -37,7 +37,7 @@
 <p>
 <div>
 <table class="tableDashboard" width="1227px">
-<TR class="trDashboard"><TD class="tdDashboard" >India Covid-19 as on:<TD colspan="4"  ID="dateFigure"></TD></TR> 
+<TR class="trDashboard"><TD class="tdDashboard" >India Covid-19 as on:</TD><TD colspan="4"  ID="dateFigure"></TD></TR> 
 <TR class="trDashboard">
                          <TD  class="imgTdDashboard" width="20%"><IMG SRC="corona.gif"></TD>
  
@@ -206,6 +206,11 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
           graphDraw("SummaryCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+40]);
           graphDraw("SummaryCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+60]);
 
+
+//summaryRawData=rawData;
+//rawData=getDoublingData();
+//graphDraw("doublingCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[]);
+//rawData=summaryRawData;
 
 </script>
 
