@@ -20,7 +20,7 @@
   <a href="index.html#ActiveAnchor">Active</a>
   <a href="index.html#CuredAnchor">Cured Etc</a>
   <a href="index.html#DeadAnchor">Dead</a>
-  <a href="index.html#NewCasesAnchor">New Cases</a>
+  <a href="index.html#NewCasesAnchor">Others</a>
 
 
 </div> 
@@ -226,12 +226,12 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
 
 summaryRawData=rawData;
 rawData=getGrowthRateData();
-graphDraw("growthRateCanvas","Confirmed Cases Growth Rate based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[]);
+graphDraw("growthRateCanvas","Confirmed Cases Growth Rate (%) based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[],"%");
 rawData=summaryRawData;
 
 summaryRawData=rawData;
 rawData=getDoublingData();
-graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[]);
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[]);
 rawData=summaryRawData;
 
 summaryRawData=rawData;

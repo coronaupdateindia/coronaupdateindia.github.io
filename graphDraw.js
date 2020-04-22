@@ -1,5 +1,9 @@
-function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,noPoints,legendList){
+function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,noPoints,legendList,YValueSuffix){
 
+	if (typeof(YValueSuffix)=="undefined")
+	{
+		YValueSuffix="";
+	}
 	var canvas = document.getElementById(canvasIdStr);
 	var ctx = canvas.getContext("2d");
 	var marginX=50;
@@ -173,13 +177,13 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 		{
 			ctx.font = "10px Arial";
 
-			rtext=currDataY;
+			rtext=currDataY+YValueSuffix;
 			directionFactor=0.25;
 			addFactor=3;
 
 			if (!noPoints || idx==rawData.length-1)
 			{
-				if((maxHeight-newPointY)/(maxHeight)<.20 ){directionFactor=-0.40;addFactor=-1;}
+				if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;addFactor=-1;}
 				if(noPoints && idx==rawData.length-1){directionFactor= 0.00;addFactor=-1;}
 				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
 			}

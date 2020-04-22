@@ -23,7 +23,7 @@
   <a href="#ActiveAnchor">Active</a>
   <a href="#CuredAnchor">Cured Etc</a>
   <a href="#DeadAnchor">Dead</a>
-  <a href="#NewCasesAnchor">New Cases</a>
+  <a href="#NewCasesAnchor">Others</a>
 </div> 
 
 <div style="padding-left:16px;padding-top:50px;" ID="CurrentStateAnchor">
@@ -120,6 +120,18 @@ Your browser does not support the canvas element.
 Your browser does not support the canvas element.
 </canvas>
 
+<p class="anchorTags" id="growthRateAnchor"></p>
+
+<canvas  class="graphCanvas" id="growthRateCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
+<p class="anchorTags" id="doublingAnchor"></p>
+
+<canvas  class="graphCanvas" id="doublingCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
 <P>
 <p>
 <H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
@@ -169,6 +181,19 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
           graphDraw("SummaryCanvas","", -2,baseScale,"rgb(255,200,100)","rgb(255,225,180,0.35)",true,["Active"   ,legendXPosition,legendYPosition+20]);
           graphDraw("SummaryCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+40]);
           graphDraw("SummaryCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+60]);
+
+
+summaryRawData=rawData;
+rawData=getGrowthRateData();
+graphDraw("growthRateCanvas","Confirmed Cases Growth Rate (%) based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[],"%");
+rawData=summaryRawData;
+
+summaryRawData=rawData;
+rawData=getDoublingData();
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[]);
+rawData=summaryRawData;
+
+
 
 </script>
 

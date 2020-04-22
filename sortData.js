@@ -251,7 +251,7 @@ function getDoublingData()
 	doublingDataList=[];
 	cummulativeDataList=getCummulativePerDayCasesData()[1];
 
-	for (i=8;i<cummulativeDataList.length-1;i++)
+	for (i=8;i<cummulativeDataList.length;i++)
 	{
 		pastDays=3;
 		confirmedRate=pastDays/((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1]-cummulativeDataList[i-pastDays][1][0]-cummulativeDataList[i-pastDays][1][1])/(cummulativeDataList[i-pastDays][1][0]+cummulativeDataList[i-pastDays][1][1]));
@@ -272,13 +272,13 @@ function getGrowthRateData()
 	doublingDataList=[];
 	cummulativeDataList=getCummulativePerDayCasesData()[1];
 
-	for (i=8;i<cummulativeDataList.length-1;i++)
+	for (i=8;i<cummulativeDataList.length;i++)
 	{
 		pastDays=3;
-		confirmedRate=((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1]-cummulativeDataList[i-pastDays][1][0]-cummulativeDataList[i-pastDays][1][1])/(cummulativeDataList[i-pastDays][1][0]+cummulativeDataList[i-pastDays][1][1]))/pastDays;
+		confirmedRate=100*((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1]-cummulativeDataList[i-pastDays][1][0]-cummulativeDataList[i-pastDays][1][1])/(cummulativeDataList[i-pastDays][1][0]+cummulativeDataList[i-pastDays][1][1]))/pastDays;
 		foreignRate  =0;
-		curedRate    =((cummulativeDataList[i][1][2]-cummulativeDataList[i-1][1][2])/cummulativeDataList[i-1][1][2])/pastDays;
-		DeadRate     =((cummulativeDataList[i][1][3]-cummulativeDataList[i-1][1][3])/cummulativeDataList[i-1][1][3])/pastDays;
+		curedRate    =100*((cummulativeDataList[i][1][2]-cummulativeDataList[i-1][1][2])/cummulativeDataList[i-1][1][2])/pastDays;
+		DeadRate     =100*((cummulativeDataList[i][1][3]-cummulativeDataList[i-1][1][3])/cummulativeDataList[i-1][1][3])/pastDays;
 
 		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
 		
@@ -293,7 +293,7 @@ function getDoubledSinceLastXDaysData()
 	doublingDataList=[];
 	cummulativeDataList=getCummulativePerDayCasesData()[1];
 
-	for (i=10;i<cummulativeDataList.length-1;i++)
+	for (i=10;i<cummulativeDataList.length;i++)
 	{
 		confirmedCtr=0;
 		if (i>9)
