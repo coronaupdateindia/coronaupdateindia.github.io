@@ -226,12 +226,12 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
 
 summaryRawData=rawData;
 rawData=getGrowthRateData();
-graphDraw("growthRateCanvas","Confirmed Cases Growth Rate (%) based on last 3 days Average starting 29/3"  ,-1,-1,"","",false,[],"%",true);
+graphDraw("growthRateCanvas","Confirmed Cases Daily Growth Rate (%) based on last 3 days starting 29/3"  ,-1,-1,"","",false,[],"%",true);
 rawData=summaryRawData;
 
 summaryRawData=rawData;
 rawData=getDoublingData();
-graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days Average starting 29/3"               ,-1,-1,"","",false,[],"",true);
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days starting 29/3"               ,-1,-1,"","",false,[],"",true);
 rawData=summaryRawData;
 
 summaryRawData=rawData;
