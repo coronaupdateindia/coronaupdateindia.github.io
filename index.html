@@ -130,9 +130,15 @@ Your browser does not support the canvas element.
 Your browser does not support the canvas element.
 </canvas>
 
-<p class="anchorTags" id="doublingAnchor"></p>
+<p class="anchorTags" id="doubledAnchor"></p>
 
 <canvas  class="graphCanvas" id="doubledCanvas" width="1200" height="600">
+Your browser does not support the canvas element.
+</canvas>
+
+<p class="anchorTags" id="testingAnchor"></p>
+
+<canvas  class="graphCanvas" id="testingCanvas" width="1200" height="600">
 Your browser does not support the canvas element.
 </canvas>
 
@@ -163,8 +169,9 @@ Format : (Confirmed, Cured/Discharged/Migrated, Dead)
 <H3>FOR DISTRICT WISE DETAILED PDF ON MOHFW WEBSITE <U> <a href='https://www.mohfw.gov.in/pdf/DistrictWiseList324.pdf'>CLICK HERE</A></U></H3>
 <P>
 <p>
-<H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
-<p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
+<H5><i><SUP>*</SUP>All Cases Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
+<p><i><SUP>*</SUP>Testing Data presented here is sourced from publically available information on website of <a href="https://icmr.nic.in/">Indian Council of Medical Research</a></i> 
+</p><p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
 </p></H5>
 <br>
 <br>
@@ -198,7 +205,9 @@ graphDraw("DeadCanvas"     ,"Dead"                    , 3,-1,"","",false,[]);
 <script src="prev1Data.js"></script>
 <script src="prev2Data.js"></script>
 <script src="currentData.js"></script>
+<script src="testingData.js"></script>
 <script src="sortData.js"></script>
+
 <script>
 sortedList=getSortedData(stateDict,baseStateList);
 drawPieChart("StateCanvas",stateDict,sortedList);
@@ -237,6 +246,11 @@ rawData=summaryRawData;
 summaryRawData=rawData;
 rawData=getDoubledSinceLastXDaysData();
 graphDraw("doubledCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[],"",true);
+rawData=summaryRawData;
+
+summaryRawData=rawData;
+rawData=testingData;
+graphDraw("testingCanvas","Total Samples tested",0,-1,"","",false,[],"",false);
 rawData=summaryRawData;
 
 </script>
