@@ -12,4 +12,5 @@ var testingData=[
 [new Date('23 April 2020, 09:00 AM  GMT+5:30'),[500542,0,0,485172]],
 [new Date('24 April 2020, 09:00 AM  GMT+5:30'),[541789,0,0,525667]],
 [new Date('25 April 2020, 09:00 AM  GMT+5:30'),[579957,0,0,0]],
+[new Date('26 April 2020, 09:00 AM  GMT+5:30'),[625309,0,0,0]],
 ];
