@@ -163,7 +163,7 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 
 		ctx.stroke(); 
 
-		if (!noPoints)
+		if ((!noPoints) && (newPointX-oldPrnPointX>25 || idx==0 || idx==rawData.length-1))
 		{
 			ctx.beginPath();
 			ctx.arc(newPointX, newPointY, 5, 0, 2 * Math.PI);
@@ -180,7 +180,7 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 		ctx.closePath();
 		ctx.stroke(); 
 
-		if (newPointX-oldPrnPointX>25 || oldPrnPointX==0 || idx==rawData.length-1)
+		if (newPointX-oldPrnPointX>25 || idx==0 || idx==rawData.length-1)
 		{
 			ctx.font = "10px Arial";
 
@@ -188,11 +188,13 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 			directionFactor=0.25;
 			addFactor=3;
 
+			xAddAdjustmentFac=0;
+			if(idx==0){xAddAdjustmentFac=6;}
 			if (!noPoints || idx==rawData.length-1)
 			{
 				if((maxHeight-newPointY)/(maxHeight)<.20){directionFactor=-0.40;addFactor=-1;}
 				if(noPoints && idx==rawData.length-1){directionFactor= 0.00;addFactor=-1;}
-				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0,7,directionFactor);
+				drawText(ctx,rtext,13,newPointX,newPointY+addFactor,0+xAddAdjustmentFac,7,directionFactor);
 			}
 
 			if (!noPoints)
@@ -205,12 +207,12 @@ function graphDraw(canvasIdStr,typeStr,typeId,maxscaleSizeY,lineColor,fillColor,
 				if (!noTime)
 				{
 					rtext=rMonth+"/"+rDate+" "+rHours+":"+rMinutes;
-					drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3,4,-.5);
+					drawText(ctx,rtext,10,newPointX,maxHeight+marginY,-3+(2*xAddAdjustmentFac),4,-.5);
 				}
 				else
 				{
 					rtext=rMonth+"/"+rDate;
-					drawText(ctx,rtext,10,newPointX,maxHeight+marginY-12,-3,4,-.5);
+					drawText(ctx,rtext,10,newPointX,maxHeight+marginY-12,-3+(2*xAddAdjustmentFac),4,-.5);
 				}
 
 			}

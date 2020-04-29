@@ -259,6 +259,10 @@ function getDoublingData()
 		curedRate    =pastDays/((cummulativeDataList[i][1][2]-cummulativeDataList[i-pastDays][1][2])/cummulativeDataList[i-pastDays][1][2]);
 		DeadRate     =1/((cummulativeDataList[i][1][3]-cummulativeDataList[i-pastDays][1][3])/cummulativeDataList[i-pastDays][1][3]);;
 
+		confirmedRate=(isFinite(confirmedRate) ? confirmedRate : 0);
+		curedRate    =(isFinite(    curedRate) ?     curedRate : 0);
+		DeadRate     =(isFinite(     DeadRate) ?      DeadRate : 0);
+
 		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
 		
 	}
@@ -280,6 +284,10 @@ function getGrowthRateData()
 		curedRate    =100*((cummulativeDataList[i][1][2]-cummulativeDataList[i-1][1][2])/cummulativeDataList[i-1][1][2])/pastDays;
 		DeadRate     =100*((cummulativeDataList[i][1][3]-cummulativeDataList[i-1][1][3])/cummulativeDataList[i-1][1][3])/pastDays;
 
+		confirmedRate=(isFinite(confirmedRate) ? confirmedRate : 0);
+		curedRate    =(isFinite(    curedRate) ?     curedRate : 0);
+		DeadRate     =(isFinite(     DeadRate) ?      DeadRate : 0);
+
 		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
 		
 	}
@@ -296,15 +304,25 @@ function getDoubledSinceLastXDaysData()
 	for (i=10;i<cummulativeDataList.length;i++)
 	{
 		confirmedCtr=0;
-		if (i>9)
+		if (i>8)
 		{		
 
-			if ((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1])/2>(cummulativeDataList[6][1][0]+cummulativeDataList[6][1][1]))
+			if ((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1])/2>(cummulativeDataList[5][1][0]+cummulativeDataList[5][1][1]))
 			{
 				for(j=i-1;j>0;j--)
 				{
-					if ((cummulativeDataList[i][1][0]+cummulativeDataList[i][1][1])/2<=(cummulativeDataList[j][1][0]+cummulativeDataList[j][1][1]))
-					confirmedCtr++;
+					currentval= cummulativeDataList[j  ][1][0]+cummulativeDataList[j  ][1][1];
+					laterval  = cummulativeDataList[j+1][1][0]+cummulativeDataList[j+1][1][1];
+					orgHalfVal=(cummulativeDataList[i  ][1][0]+cummulativeDataList[i  ][1][1])/2;
+					if (orgHalfVal<=currentval)
+					{confirmedCtr++;}
+					else
+					{
+						dateFraction=(cummulativeDataList[j+1][0]-cummulativeDataList[j][0])/86400000;
+						valueFraction=(laterval-orgHalfVal)/(laterval-currentval);
+						confirmedCtr=confirmedCtr+parseFloat((valueFraction*dateFraction).toFixed(2));
+						break;
+					}
 				}
 			}
 			
@@ -316,7 +334,71 @@ function getDoubledSinceLastXDaysData()
 
 }
 
+//////////////////
+function getDoublingDataBasedOnAverge()
+{
+	doublingDataList=[];
+	cummulativeDataList=getCummulativePerDayCasesData()[1];
 
+	for (i=8;i<cummulativeDataList.length;i++)
+	{
+		pastDays=3;
+		confirmedRate=0;
+		curedRate    =0;
+		DeadRate     =0;
+		pastDays=3;
+		for (j=0;j<pastDays;j++)
+		confirmedRate=confirmedRate+(1/((cummulativeDataList[i-j][1][0]+cummulativeDataList[i-j][1][1]-cummulativeDataList[i-j-1][1][0]-cummulativeDataList[i-j-1][1][1])/(cummulativeDataList[i-j-1][1][0]+cummulativeDataList[i-j-1][1][1])));
+		foreignRate  =0;
+		curedRate    =curedRate    +(1/((cummulativeDataList[i-j][1][2]-cummulativeDataList[i-j-1][1][2])/cummulativeDataList[i-j-1][1][2]));
+		DeadRate     =DeadRate     +(1/((cummulativeDataList[i-j][1][3]-cummulativeDataList[i-j-1][1][3])/cummulativeDataList[i-j-1][1][3]));
+
+		confirmedRate=(isFinite(confirmedRate/pastDays) ? confirmedRate/pastDays : 0);
+		curedRate    =(isFinite(    curedRate/pastDays) ?     curedRate/pastDays : 0);
+		DeadRate     =(isFinite(     DeadRate/pastDays) ?      DeadRate/pastDays : 0);
+
+		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
+		
+	}
+	return doublingDataList;
+
+
+}
+
+function getGrowthRateDataBasedOnAverge()
+{
+	doublingDataList=[];
+	cummulativeDataList=getCummulativePerDayCasesData()[1];
+
+	for (i=8;i<cummulativeDataList.length;i++)
+	{
+
+		confirmedRate=0;
+		curedRate    =0;
+		DeadRate     =0;
+		pastDays=3;
+		for (j=0;j<pastDays;j++)
+		{
+			confirmedRate=confirmedRate+100*((cummulativeDataList[i-j][1][0]+cummulativeDataList[i-j][1][1]-cummulativeDataList[i-j-1][1][0]-cummulativeDataList[i-j-1][1][1])/(cummulativeDataList[i-j-1][1][0]+cummulativeDataList[i-j-1][1][1]));
+			foreignRate  =0;
+			curedRate    =curedRate    +100*((cummulativeDataList[i-j][1][2]-cummulativeDataList[i-j-1][1][2])/cummulativeDataList[i-j-1][1][2]);
+			DeadRate     =DeadRate     +100*((cummulativeDataList[i-j][1][3]-cummulativeDataList[i-j-1][1][3])/cummulativeDataList[i-j-1][1][3]);
+		}
+
+		confirmedRate=confirmedRate/pastDays;
+		curedRate    =curedRate/pastDays;
+		DeadRate     =DeadRate/pastDays;
+
+
+		doublingDataList.push([cummulativeDataList[i][0],[parseFloat(confirmedRate.toFixed(2)),parseFloat(foreignRate.toFixed(2)),parseFloat(curedRate.toFixed(2)),parseFloat(DeadRate.toFixed(2))]]);		
+		
+	}
+	return doublingDataList;
+
+
+}
+
+//////////////////
 
 function loadJS(file) {
     // DOM: Create the script element
