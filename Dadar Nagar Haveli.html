@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoronaVirus Covid19 Dashboard for India</title>
+<title>CoronaVirus Covid19 Dashboard for Dadra Nagar Haveli
+ , India</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="Keywords" content="Corona India Update, Corona, CoronaVirus,Covid19,Covid 19,Covid-19,ChineseVirus,WuhanVirus,India,Dashboard,update, Confirmed,Active,Cured,Dead,New Cases,States,State, Graph,Graphs,Andhra Pradesh,Arunachal Pradesh,Assam,Bihar,Chandigarh,Chhattisgarh,Delhi,Goa,Gujarat,Haryana,Himachal Pradesh,Jharkhand,Jammu and Kashmir,Karnataka,Kerala,Ladakh,Madhya Pradesh,Maharashtra,Manipur,Meghalaya,Mizoram,Nagaland,Odisha,Puducherry,Punjab,Rajasthan,Sikkim,Tamil Nadu,Telengana,Tripura,Uttar Pradesh,Uttarakhand,West Bengal,Lakshadweep,Dadar Nagar Haveli,Daman and Diu,Andaman and Nicobar Islands">
+<meta name="Keywords" content="Dadra Nagar Haveli,CoronaVirus,Covid19,Covid 19,Covid-19,ChineseVirus,WuhanVirus,India,Dashboard,States,State, Graph,Graphs, Confirmed,Active,Cured,Dead,New Cases">
 <meta name="Description" content="Detailed CoronaVirus (Covid19) Cases Dashboard designed specifically for India providing nationwide and statwise dashboards and progression graphs providing statistics for Confirmed, Active, Cured, Dead and new cases">
+
 
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -13,31 +16,29 @@
 <body   style="background-color:#f3f3f3">
  <div class="topnav">
   <a class="active" href="index.html">Home</a>
-  <a href="index.html#StateDashboardAnchor">State Dashboard</a>
+  <a class="active" href="Dadra and Nagar Haveli.html">Top</a>
   <a href="index.html#StateTableAnchor">State Graphs</a>
-  <a class="active" href="index.html#SummaryAnchor">NationWide</a>
-  <a href="index.html#ConfirmedAnchor">Confirmed</a>
-  <a href="index.html#ActiveAnchor">Active</a>
-  <a href="index.html#CuredAnchor">Cured Etc</a>
-  <a href="index.html#DeadAnchor">Dead</a>
-  <a href="index.html#NewCasesAnchor">Others</a>
-
-
+  <a class="active" href="#SummaryAnchor">Dadra Nagar Haveli</a>
+  <a href="#ConfirmedAnchor">Confirmed</a>
+  <a href="#ActiveAnchor">Active</a>
+  <a href="#CuredAnchor">Cured Etc</a>
+  <a href="#DeadAnchor">Dead</a>
+  <a href="#NewCasesAnchor">Others</a>
 </div> 
 
-<div style="padding-left:16px;padding-top:50px;">
+<div style="padding-left:16px;padding-top:50px;" ID="CurrentStateAnchor">
 
 <a class="disclaimer" href='disclaimer.html'>** DISCLAIMER: MUST READ THE CONTENT OF THIS LINK IN FULL BEFORE PROCEEDING ON THIS WEBSITE **</a><BR>
 
 <B>
-<H2 ID="NationWide" ALIGN='CENTRE'>NATIONWIDE DASHBOARD OF CORONAVIRUS CASES*</H2>
+<H2 ID="StateID" ALIGN='CENTRE'>DADRA NAGAR HAVELI DASHBOARD OF CORONAVIRUS CASES*</H2>
 </div>
 
 <p>
 <p>
 <div>
 <table class="tableDashboard" width="1227px">
-<TR class="trDashboard"><TD class="tdDashboard" >India Covid-19 as on:</TD><TD colspan="4"  ID="dateFigure"></TD></TR> 
+<TR class="trDashboard"><TD class="tdDashboard" >Covid-19 status as on:<TD colspan="4"  ID="dateFigure"></TD></TR> 
 <TR class="trDashboard">
                          <TD  class="imgTdDashboard" width="20%"><IMG SRC="corona.gif"></TD>
  
@@ -81,6 +82,7 @@
 </div> 
 
 <p class="commentDashboard"><i>Additional cases as given in ( ) are since 2 last updates (generally around 24 hours) & [ ] are since last update</i></p>
+
 
 <p class="anchorTags" id="SummaryAnchor"></p>
 
@@ -130,48 +132,10 @@ Your browser does not support the canvas element.
 Your browser does not support the canvas element.
 </canvas>
 
-<p class="anchorTags" id="doubledAnchor"></p>
-
-<canvas  class="graphCanvas" id="doubledCanvas" width="1200" height="600">
-Your browser does not support the canvas element.
-</canvas>
-
-<p class="anchorTags" id="testingAnchor"></p>
-
-<canvas  class="graphCanvas" id="testingCanvas" width="1200" height="600">
-Your browser does not support the canvas element.
-</canvas>
-
-<p  class="anchorTags" id="StateDashboardAnchor"></p>
-
-<H2 ID="StateWise">STATE WISE DASHBOARD <SUP>*#</SUP></H2>
-
-<canvas  class="graphCanvas" id="StateCanvas" width="1200" height="600">
-Your browser does not support the canvas element.
-</canvas>
-
-
-<p id="StateTableAnchor"></p>
-<br>
-<br>
-<br>
-<H3 ID="StateGraphs">CLICK STATE NAME BELOW FOR THAT STATE'S GRAPH OR <U> <a href='indiaMap.html'>HERE TO SEE STATE WISE GRAPHS USING MAP OF INDIA</A></U><SUP>*#</SUP></H3>
-<P>
-Format : (Confirmed, Cured/Discharged/Migrated, Dead)
-<style>
-    a { text-decoration: none; }
-  </style>
-<TABLE class="stateTable" ID="stateTable">
-</TABLE>
-<P>
-<P>
-
-<H3>FOR DISTRICT WISE DETAILED PDF ON MOHFW WEBSITE <U> <a href='https://www.mohfw.gov.in/pdf/Districtreporting429.pdf'>CLICK HERE</A></U></H3>
 <P>
 <p>
-<H5><i><SUP>*</SUP>All Cases Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
-<p><i><SUP>*</SUP>Testing Data presented here is sourced from publically available information on website of <a href="https://icmr.nic.in/">Indian Council of Medical Research</a></i> 
-</p><p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
+<H5><i><SUP>*</SUP>All Data presented here is sourced from publically available information on website of <a href="https://www.mohfw.gov.in/">Ministry of Health & Family WelFare.</a></i> 
+<p><i><SUP>#</SUP>There may be a mismatch between total cases and sum of cases in states due to non-allocation of some cases to respective states.</a></i> 
 </p></H5>
 <br>
 <br>
@@ -191,29 +155,14 @@ THE DATA PRESENTED HERE AT ANY POINT IN TIME MAY NOT BE COMPLETE, ACCURATE AND/O
 THUS VIEWER OF THIS PAGE "MUST NOT" RELY ON THIS INFORMATION FOR ANY PRACTICAL
 USE, RATHER REFER TO THE REVELENT MINISTRY'S SITE FOR OFFICAL DATA. 
 </B>
-<script src="summaryData.js"></script>
+<script src=  "Dadar Nagar Haveli.js"></script>
 <script src=  "graphDraw.js"></script>
-<script>
+<script src="sortData.js"></script><script>
 displaySummaryData();
 graphDraw("ConfirmedCanvas","Confirmed"               ,-1,-1,"","",false,[]);
 graphDraw("ActiveCanvas"   ,"Active"                  ,-2,-1,"","",false,[]);
 graphDraw("CuredCanvas"    ,"Cured/Discharge/Migrated", 2,-1,"","",false,[]);
 graphDraw("DeadCanvas"     ,"Dead"                    , 3,-1,"","",false,[]);
-</script>
-<script src="stateList.js"></script>
-<script src="currentData.js"></script>
-<script src="prev1Data.js"></script>
-<script src="prev2Data.js"></script>
-<script src="currentData.js"></script>
-<script src="testingData.js"></script>
-<script src="sortData.js"></script>
-
-<script>
-sortedList=getSortedData(stateDict,baseStateList);
-drawPieChart("StateCanvas",stateDict,sortedList);
-displayStateSummary(stateDict,sortedList);
-</script>
-<script>
 summaryRawData=rawData;
 lst=getNewPerDayCasesData();
 baseScale=lst[0];
@@ -233,30 +182,20 @@ baseScale=graphDraw("SummaryCanvas","Summary", -1,       -1,"rgb(100,100,255)","
           graphDraw("SummaryCanvas","",  2,baseScale,"rgb(100,255,100)","rgb(100,255,180,0.35)",true,["Cured etc",legendXPosition,legendYPosition+40]);
           graphDraw("SummaryCanvas","",  3,baseScale,"rgb(255,100,100)","rgb(255,180,180,0.35)",true,["Dead",legendXPosition,legendYPosition+60]);
 
+
 summaryRawData=rawData;
 rawData=getGrowthRateData();
-graphDraw("growthRateCanvas","Confirmed Cases Daily Growth Rate (%) based on last 3 days starting 29/3"  ,-1,-1,"","",false,[],"%",true);
+graphDraw("growthRateCanvas","Confirmed Cases Daily Growth Rate (%) based on last 3 days  starting 29/3"  ,-1,-1,"","",false,[],"%",true,"",true);
 rawData=summaryRawData;
 
 summaryRawData=rawData;
 rawData=getDoublingData();
-graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days starting 29/3"               ,-1,-1,"","",false,[],"",true);
-rawData=summaryRawData;
-
-summaryRawData=rawData;
-rawData=getDoubledSinceLastXDaysData();
-graphDraw("doubledCanvas","Days passed before Doubling of Confirmed Cases starting 31/3"               ,-1,-1,"","",false,[],"",true);
+graphDraw("doublingCanvas","Confirmed Cases Prospective Doubling (in Days) based on last 3 days  starting 29/3"               ,-1,-1,"","",false,[],"",true);
 rawData=summaryRawData;
 
 
-
-summaryRawData=rawData;
-rawData=testingData;
-graphDraw("testingCanvas","Total Samples tested",0,-1,"","",false,[],"",false);
-rawData=summaryRawData;
 
 </script>
 
 </body>
 </html> 
-

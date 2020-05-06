@@ -32,7 +32,7 @@ var baseStateList = ['Andhra Pradesh',
 'Uttarakhand',
 'West Bengal',
 'Lakshadweep',
-'Dadra and Nagar Haveli',
+'Dadar Nagar Haveli',
 'Daman and Diu',
 'Andaman and Nicobar Islands'];
 
