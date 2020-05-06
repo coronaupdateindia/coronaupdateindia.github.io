@@ -190,8 +190,8 @@ function getPerDayCasesData(onlyNew)
 		oldDate=newDate;
 	}
 
-	if (oldDate.getHours()>12)
-	{
+//	if (oldDate.getHours()>12)
+//	{
 		if(maxNumber<currconfirmedNo+currforeignNo){maxNumber=currconfirmedNo+currforeignNo;}
 		if(maxNumber<currforeignNo){maxNumber=currforeignNo;}
 		if(maxNumber<currCuredNo){maxNumber=currCuredNo;}
@@ -200,7 +200,7 @@ function getPerDayCasesData(onlyNew)
 		currentDataList=[];
 		currentDataList=[new Date(oldDate.getYear(),oldDate.getMonth(),oldDate.getDate()), [currconfirmedNo,currforeignNo,currCuredNo,currDeadNo]];	
 		newCasesData.push(currentDataList);
-	}
+//	}
 	return [maxNumber,newCasesData];
 	
 
