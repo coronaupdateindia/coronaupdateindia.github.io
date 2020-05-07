@@ -44,9 +44,15 @@ function displayStateSummary(unsortedData,sortedStateList){
 	element = document.getElementById("stateTable");
 	innerHTMLStr=""
 	//innerHTMLStr="<TR><TD><TABLE>";
-	headerRowStr=             "<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH COLSPAN=4 nowrap  WIDTH=2% style='text-align: center'>New cases since last</TH></TR>"
-	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>2-Updates</TH></TR>"
-	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH COLSPAN=2  style='text-align: center'>Confirmed</TH><TH style='text-align: center'>Cured Etc</TH><TH style='text-align: center'>Dead</TH></TR>";
+//	headerRowStr=             "<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH COLSPAN=4 nowrap  WIDTH=2% style='text-align: center'>New cases since last</TH></TR>"
+//	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>2-Updates</TH><TH style='text-align: right'>2-Updates</TH></TR>"
+//	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH COLSPAN=2  style='text-align: center'>Confirmed</TH><TH style='text-align: center'>Cured Etc</TH><TH style='text-align: center'>Dead</TH></TR>";
+
+	headerRowStr=             "<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH COLSPAN=3 nowrap  WIDTH=2% style='text-align: center'>New cases since last Update</TH></TR>"
+//	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>     </TH><TH>     </TH><TH>         </TH><TH>         </TH><TH>    </TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>1-Update</TH><TH style='text-align: right'>1-Update</TH></TR>"
+	headerRowStr=headerRowStr+"<TR style='background-color: #aaaaaa'><TH WIDTH=2%>ORDER</TH><TH>State</TH><TH>Confirmed</TH><TH>Cured Etc</TH><TH>Dead</TH><TH COLSPAN=1  style='text-align: center'>Confirmed</TH><TH style='text-align: center'>Cured Etc</TH><TH style='text-align: center'>Dead</TH></TR>";
+
+
 	innerHTMLStr=innerHTMLStr+headerRowStr;
 	for (i=0;i<sortedStateList.length;i++){
 
@@ -220,8 +226,9 @@ function getNewCasesForState(stateName,currValue)
 
 	if(prev1List){prev1Value=prev1List[0]+prev1List[1];}
 	if(prev2List){prev2Value=prev2List[0]+prev2List[1];}
-	confirmedNew=             "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
-	confirmedNew=confirmedNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
+	//confirmedNew=             "<td nowrap style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+	confirmedNew="";
+	confirmedNew=confirmedNew+"<td nowrap style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
 
 	currValue =0;
 	prev1Value=0;
@@ -230,8 +237,9 @@ function getNewCasesForState(stateName,currValue)
 	if(currList){currValue  = currList[2];}
 	if(prev1List){prev1Value=prev1List[2];}
 	if(prev2List){prev2Value=prev2List[2];}
-	curedNew=         "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
-//	curedNew=curedNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
+	curedNew=         "<td nowrap style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+	curedNew=""
+	curedNew=curedNew+"<td nowrap style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
 
 	currValue =0;
 	prev1Value=0;
@@ -240,8 +248,9 @@ function getNewCasesForState(stateName,currValue)
 	if(currList){currValue  = currList[3];}
 	if(prev1List){prev1Value=prev1List[3];}
 	if(prev2List){prev2Value=prev2List[3];}
-	deadNew=        "<td style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
-//	deadNew=deadNew+"<td style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
+//	deadNew=        "<td nowrap style='text-align: right'>( +"+(currValue-prev2Value)+" )</td>";
+	deadNew=""
+	deadNew=deadNew+"<td nowrap style='text-align: right'>[ +"+(currValue-prev1Value)+" ]</td>";
 
 	return  confirmedNew+curedNew+deadNew;
 }

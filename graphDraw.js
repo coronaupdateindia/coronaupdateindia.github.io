@@ -395,7 +395,7 @@ function displaySummaryData()
 	element=document.getElementById("ConfirmedAddFigure2");
 	signStr="+"
 	if (confirmedAddVal2<=0){signStr="";}
-	element.innerHTML="( "+signStr+confirmedAddVal2+" )";
+	//element.innerHTML="( "+signStr+confirmedAddVal2+" )";
 
 	//Active
 	element=document.getElementById("ActiveFigure");
@@ -409,7 +409,7 @@ function displaySummaryData()
 	element=document.getElementById("ActiveAddFigure2");
 	signStr="+"
 	if (activeAddVal2<=0){signStr="";}
-	element.innerHTML="( "+signStr+activeAddVal2+" )";
+	//element.innerHTML="( "+signStr+activeAddVal2+" )";
 
 	//Cured
 	element=document.getElementById("CuredFigure");
@@ -423,7 +423,7 @@ function displaySummaryData()
 	element=document.getElementById("CuredAddFigure2");
 	signStr="+"
 	if (curedAddVal1<=0){signStr="";}
-	element.innerHTML=" ( "+signStr+curedAddVal2+" )";
+	//element.innerHTML=" ( "+signStr+curedAddVal2+" )";
 
 	//Dead
 	element=document.getElementById("DeadFigure");
@@ -438,6 +438,6 @@ function displaySummaryData()
 	element=document.getElementById("DeadAddFigure2");
 	signStr="+"
 	if (deadAddVal2<=0){signStr="";}
-	element.innerHTML=" ( "+signStr+deadAddVal2+" )";
+	//element.innerHTML=" ( "+signStr+deadAddVal2+" )";
 
 }
