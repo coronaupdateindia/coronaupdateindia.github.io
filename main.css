@@ -1,5 +1,3 @@
-
-
 .topnav {
   overflow: hidden;
   background-color: #ffffff;
@@ -129,6 +127,7 @@ th, td {
 
 .trDashboard a {
   color: #626262;
+  text-decoration: none;
 }
 
 .tableDashboard {
