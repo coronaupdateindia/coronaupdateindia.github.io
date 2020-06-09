@@ -56,7 +56,7 @@ var testingData=[
 [new Date('06 June 2020, 09:00 AM  GMT+5:30'),[4524317,0,0,0]],
 [new Date('07 June 2020, 09:00 AM  GMT+5:30'),[4666386,0,0,0]],
 [new Date('08 June 2020, 09:00 AM  GMT+5:30'),[4774434,0,0,0]]
-
+[new Date('09 June 2020, 09:00 AM  GMT+5:30'),[4916116,0,0,0]]
 ];
 
 
